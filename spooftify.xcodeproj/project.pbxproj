@@ -1,0 +1,976 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE183DDC165A6E4900C92514 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = EE183DDB165A6E4900C92514 /* README.mdown */; };
+		EE183DEE165A6FA200C92514 /* playlistsTab.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183DEA165A6FA200C92514 /* playlistsTab.png */; };
+		EE183DEF165A6FA200C92514 /* playlistsTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183DEB165A6FA200C92514 /* playlistsTab@2x.png */; };
+		EE183DF0165A6FA200C92514 /* soundAccessory.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183DEC165A6FA200C92514 /* soundAccessory.png */; };
+		EE183DF1165A6FA200C92514 /* soundAccessory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183DED165A6FA200C92514 /* soundAccessory@2x.png */; };
+		EE183E02165A701900C92514 /* albumsSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183DFC165A701900C92514 /* albumsSearch.png */; };
+		EE183E03165A701900C92514 /* albumsSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183DFD165A701900C92514 /* albumsSearch@2x.png */; };
+		EE183E04165A701900C92514 /* artistsSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183DFE165A701900C92514 /* artistsSearch.png */; };
+		EE183E05165A701900C92514 /* artistsSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183DFF165A701900C92514 /* artistsSearch@2x.png */; };
+		EE183E06165A701900C92514 /* songsSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E00165A701900C92514 /* songsSearch.png */; };
+		EE183E07165A701900C92514 /* songsSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E01165A701900C92514 /* songsSearch@2x.png */; };
+		EE183E0E165A705C00C92514 /* profileTab.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E0C165A705C00C92514 /* profileTab.png */; };
+		EE183E0F165A705C00C92514 /* profileTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E0D165A705C00C92514 /* profileTab@2x.png */; };
+		EE183E18165A70AE00C92514 /* settingsTab.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E16165A70AE00C92514 /* settingsTab.png */; };
+		EE183E19165A70AE00C92514 /* settingsTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E17165A70AE00C92514 /* settingsTab@2x.png */; };
+		EE183E2E165A714A00C92514 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E22165A714A00C92514 /* add.png */; };
+		EE183E2F165A714A00C92514 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E23165A714A00C92514 /* add@2x.png */; };
+		EE183E30165A714A00C92514 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E24165A714A00C92514 /* album.png */; };
+		EE183E31165A714A00C92514 /* album@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E25165A714A00C92514 /* album@2x.png */; };
+		EE183E32165A714A00C92514 /* artist.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E26165A714A00C92514 /* artist.png */; };
+		EE183E33165A714A00C92514 /* artist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E27165A714A00C92514 /* artist@2x.png */; };
+		EE183E34165A714A00C92514 /* genericAlbum.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E28165A714A00C92514 /* genericAlbum.png */; };
+		EE183E35165A714A00C92514 /* genericAlbum@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E29165A714A00C92514 /* genericAlbum@2x.png */; };
+		EE183E36165A714A00C92514 /* shuffle-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E2A165A714A00C92514 /* shuffle-highlighted.png */; };
+		EE183E37165A714A00C92514 /* shuffle-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E2B165A714A00C92514 /* shuffle-highlighted@2x.png */; };
+		EE183E38165A714A00C92514 /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E2C165A714A00C92514 /* shuffle.png */; };
+		EE183E39165A714A00C92514 /* shuffle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E2D165A714A00C92514 /* shuffle@2x.png */; };
+		EE183E3C165A717400C92514 /* SpooftifyAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E3B165A716A00C92514 /* SpooftifyAlbumTableViewController.m */; };
+		EE183E3D165A717A00C92514 /* SpooftifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DDF165A6F1A00C92514 /* SpooftifyLoginViewController.m */; };
+		EE183E3E165A717E00C92514 /* UITextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DE1165A6F3300C92514 /* UITextFieldTableViewCell.m */; };
+		EE183E3F165A718100C92514 /* UIGrayGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DE3165A6F4F00C92514 /* UIGrayGradientButton.m */; };
+		EE183E40165A718800C92514 /* SpooftifyPlaylistNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DE5165A6F8700C92514 /* SpooftifyPlaylistNavigationController.m */; };
+		EE183E41165A718C00C92514 /* SpooftifyPlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DE7165A6F8700C92514 /* SpooftifyPlaylistTableViewCell.m */; };
+		EE183E42165A718F00C92514 /* SpooftifyPlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DE9165A6F8700C92514 /* SpooftifyPlaylistTableViewController.m */; };
+		EE183E43165A719400C92514 /* SpooftifySearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DF3165A6FCE00C92514 /* SpooftifySearchNavigationController.m */; };
+		EE183E44165A719700C92514 /* SpooftifySearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DF5165A6FCE00C92514 /* SpooftifySearchTableViewController.m */; };
+		EE183E45165A719A00C92514 /* SpooftifyAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DF7165A6FE600C92514 /* SpooftifyAlbumTableViewCell.m */; };
+		EE183E46165A719C00C92514 /* SpooftifyArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DF9165A6FE600C92514 /* SpooftifyArtistTableViewCell.m */; };
+		EE183E47165A719E00C92514 /* SpooftifyTrackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183DFB165A6FFA00C92514 /* SpooftifyTrackTableViewCell.m */; };
+		EE183E48165A71A400C92514 /* SpooftifyProfileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E09165A704A00C92514 /* SpooftifyProfileNavigationController.m */; };
+		EE183E49165A71A700C92514 /* SpooftifyProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E0B165A704A00C92514 /* SpooftifyProfileTableViewController.m */; };
+		EE183E4A165A71AF00C92514 /* SpooftifySettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E11165A708100C92514 /* SpooftifySettingsNavigationController.m */; };
+		EE183E4B165A71B200C92514 /* SpooftifySettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E13165A708100C92514 /* SpooftifySettingsTableViewController.m */; };
+		EE183E4C165A71B500C92514 /* UISwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E15165A709A00C92514 /* UISwitchTableViewCell.m */; };
+		EE183E4D165A71BB00C92514 /* SpooftifySongsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E1B165A70FA00C92514 /* SpooftifySongsTableViewCell.m */; };
+		EE183E4E165A71BE00C92514 /* SpooftifySongsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E1D165A70FA00C92514 /* SpooftifySongsTableViewController.m */; };
+		EE183E4F165A71C000C92514 /* SpooftifyShuffleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E1F165A711000C92514 /* SpooftifyShuffleButton.m */; };
+		EE183E50165A71C300C92514 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E21165A712300C92514 /* UIImage+Color.m */; };
+		EE183E53165A71EE00C92514 /* SpooftifyArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E52165A71EE00C92514 /* SpooftifyArtistTableViewController.m */; };
+		EE183E58165A721600C92514 /* SpooftifyNowPlayingNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E55165A721600C92514 /* SpooftifyNowPlayingNavigationController.m */; };
+		EE183E59165A721600C92514 /* SpooftifyNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E57165A721600C92514 /* SpooftifyNowPlayingViewController.m */; };
+		EE183E5C165A722600C92514 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E5B165A722600C92514 /* NSMutableArray+Shuffle.m */; };
+		EE183E67165A724500C92514 /* knob.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E5D165A724500C92514 /* knob.png */; };
+		EE183E68165A724500C92514 /* knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E5E165A724500C92514 /* knob@2x.png */; };
+		EE183E69165A724500C92514 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E5F165A724500C92514 /* next.png */; };
+		EE183E6A165A724500C92514 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E60165A724500C92514 /* next@2x.png */; };
+		EE183E6B165A724500C92514 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E61165A724500C92514 /* pause.png */; };
+		EE183E6C165A724500C92514 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E62165A724500C92514 /* pause@2x.png */; };
+		EE183E6D165A724500C92514 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E63165A724500C92514 /* play.png */; };
+		EE183E6E165A724500C92514 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E64165A724500C92514 /* play@2x.png */; };
+		EE183E6F165A724500C92514 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E65165A724500C92514 /* prev.png */; };
+		EE183E70165A724500C92514 /* prev@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE183E66165A724500C92514 /* prev@2x.png */; };
+		EE183E7D165A727800C92514 /* Spooftify.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E72165A727800C92514 /* Spooftify.m */; };
+		EE183E7E165A727800C92514 /* SpooftifyAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E74165A727800C92514 /* SpooftifyAlbum.m */; };
+		EE183E7F165A727800C92514 /* SpooftifyArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E76165A727800C92514 /* SpooftifyArtist.m */; };
+		EE183E80165A727800C92514 /* SpooftifyPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E78165A727800C92514 /* SpooftifyPlaylist.m */; };
+		EE183E81165A727800C92514 /* SpooftifyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E7A165A727800C92514 /* SpooftifyProfile.m */; };
+		EE183E82165A727800C92514 /* SpooftifyTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = EE183E7C165A727800C92514 /* SpooftifyTrack.m */; };
+		EE3CEE7616513CDC004AD306 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3CEE7516513CDC004AD306 /* libresolv.dylib */; };
+		EE418F451650FCF800753709 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE418F441650FCF800753709 /* UIKit.framework */; };
+		EE418F471650FCF800753709 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE418F461650FCF800753709 /* Foundation.framework */; };
+		EE418F491650FCF800753709 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE418F481650FCF800753709 /* CoreGraphics.framework */; };
+		EE418F4F1650FCF800753709 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE418F4D1650FCF800753709 /* InfoPlist.strings */; };
+		EE418F511650FCF800753709 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE418F501650FCF800753709 /* main.m */; };
+		EE418F551650FCF800753709 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE418F541650FCF800753709 /* AppDelegate.m */; };
+		EE418F571650FCF800753709 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EE418F561650FCF800753709 /* Default.png */; };
+		EE418F591650FCF800753709 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE418F581650FCF800753709 /* Default@2x.png */; };
+		EE418F5B1650FCF800753709 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE418F5A1650FCF800753709 /* Default-568h@2x.png */; };
+		EE76FCAA1652680300D58253 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE76FCA91652680300D58253 /* AudioToolbox.framework */; };
+		EEB7B8EB16588E2D006FB7EE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEB7B8EA16588E2D006FB7EE /* Settings.bundle */; };
+		EEB7B8EE1658D7C3006FB7EE /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB7B8ED1658D7C1006FB7EE /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EEB7B8F01658D812006FB7EE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB7B8EF1658D811006FB7EE /* Security.framework */; };
+		EEB7B8FC165905B5006FB7EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB7B8FB165905B4006FB7EE /* QuartzCore.framework */; };
+		EED285BD1659D19E0064332E /* SpooftifyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = EED285BC1659D19D0064332E /* SpooftifyApplication.m */; };
+		EED285BF1659D91C0064332E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED285BE1659D91C0064332E /* MediaPlayer.framework */; };
+		EEE28A4D16510D6F00B046B5 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE28A4B16510D6F00B046B5 /* libcrypto.a */; };
+		EEE28A4E16510D6F00B046B5 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE28A4C16510D6F00B046B5 /* libssl.a */; };
+		EEE28A7B16510DBA00B046B5 /* aes.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A5016510DBA00B046B5 /* aes.c */; };
+		EEE28A7C16510DBA00B046B5 /* auth.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A5216510DBA00B046B5 /* auth.c */; };
+		EEE28A7D16510DBA00B046B5 /* buf.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A5416510DBA00B046B5 /* buf.c */; };
+		EEE28A7E16510DBA00B046B5 /* cache.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A5616510DBA00B046B5 /* cache.c */; };
+		EEE28A7F16510DBA00B046B5 /* channel.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A5816510DBA00B046B5 /* channel.c */; };
+		EEE28A8016510DBA00B046B5 /* commands.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A5A16510DBA00B046B5 /* commands.c */; };
+		EEE28A8116510DBA00B046B5 /* despotify.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A5D16510DBA00B046B5 /* despotify.c */; };
+		EEE28A8216510DBA00B046B5 /* dns.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A5F16510DBA00B046B5 /* dns.c */; };
+		EEE28A8316510DBA00B046B5 /* ezxml.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A6116510DBA00B046B5 /* ezxml.c */; };
+		EEE28A8416510DBA00B046B5 /* handlers.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A6316510DBA00B046B5 /* handlers.c */; };
+		EEE28A8516510DBA00B046B5 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A6516510DBA00B046B5 /* hmac.c */; };
+		EEE28A8616510DBA00B046B5 /* keyexchange.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A6716510DBA00B046B5 /* keyexchange.c */; };
+		EEE28A8716510DBA00B046B5 /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A6916510DBA00B046B5 /* network.c */; };
+		EEE28A8816510DBA00B046B5 /* packet.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A6B16510DBA00B046B5 /* packet.c */; };
+		EEE28A8916510DBA00B046B5 /* puzzle.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A6D16510DBA00B046B5 /* puzzle.c */; };
+		EEE28A8A16510DBA00B046B5 /* session.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A6F16510DBA00B046B5 /* session.c */; };
+		EEE28A8B16510DBA00B046B5 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A7116510DBA00B046B5 /* sha1.c */; };
+		EEE28A8C16510DBA00B046B5 /* shn.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A7316510DBA00B046B5 /* shn.c */; };
+		EEE28A8D16510DBA00B046B5 /* sndqueue.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A7516510DBA00B046B5 /* sndqueue.c */; };
+		EEE28A8E16510DBA00B046B5 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A7716510DBA00B046B5 /* util.c */; };
+		EEE28A8F16510DBA00B046B5 /* xml.c in Sources */ = {isa = PBXBuildFile; fileRef = EEE28A7916510DBA00B046B5 /* xml.c */; };
+		EEE28B2C16511CC700B046B5 /* Ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE28B2B16511CC700B046B5 /* Ogg.framework */; };
+		EEE28B2E16511CCE00B046B5 /* Vorbis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE28B2D16511CCE00B046B5 /* Vorbis.framework */; };
+		EEE28B3316511EBE00B046B5 /* SpooftifyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE28B3216511EBE00B046B5 /* SpooftifyTabBarController.m */; };
+		EEF24D1516550FAB00E3E581 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = EEF24D1016550FAB00E3E581 /* TPCircularBuffer+AudioBufferList.c */; };
+		EEF24D1616550FAB00E3E581 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = EEF24D1216550FAB00E3E581 /* TPCircularBuffer.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EE183DDB165A6E4900C92514 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = SOURCE_ROOT; };
+		EE183DDE165A6F1A00C92514 /* SpooftifyLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyLoginViewController.h; path = Login/SpooftifyLoginViewController.h; sourceTree = "<group>"; };
+		EE183DDF165A6F1A00C92514 /* SpooftifyLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyLoginViewController.m; path = Login/SpooftifyLoginViewController.m; sourceTree = "<group>"; };
+		EE183DE0165A6F3300C92514 /* UITextFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UITextFieldTableViewCell.h; path = Login/UITextFieldTableViewCell.h; sourceTree = "<group>"; };
+		EE183DE1165A6F3300C92514 /* UITextFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UITextFieldTableViewCell.m; path = Login/UITextFieldTableViewCell.m; sourceTree = "<group>"; };
+		EE183DE2165A6F4F00C92514 /* UIGrayGradientButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIGrayGradientButton.h; path = Login/UIGrayGradientButton.h; sourceTree = "<group>"; };
+		EE183DE3165A6F4F00C92514 /* UIGrayGradientButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UIGrayGradientButton.m; path = Login/UIGrayGradientButton.m; sourceTree = "<group>"; };
+		EE183DE4165A6F8700C92514 /* SpooftifyPlaylistNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyPlaylistNavigationController.h; path = Playlists/SpooftifyPlaylistNavigationController.h; sourceTree = "<group>"; };
+		EE183DE5165A6F8700C92514 /* SpooftifyPlaylistNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyPlaylistNavigationController.m; path = Playlists/SpooftifyPlaylistNavigationController.m; sourceTree = "<group>"; };
+		EE183DE6165A6F8700C92514 /* SpooftifyPlaylistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyPlaylistTableViewCell.h; path = Playlists/SpooftifyPlaylistTableViewCell.h; sourceTree = "<group>"; };
+		EE183DE7165A6F8700C92514 /* SpooftifyPlaylistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyPlaylistTableViewCell.m; path = Playlists/SpooftifyPlaylistTableViewCell.m; sourceTree = "<group>"; };
+		EE183DE8165A6F8700C92514 /* SpooftifyPlaylistTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyPlaylistTableViewController.h; path = Playlists/SpooftifyPlaylistTableViewController.h; sourceTree = "<group>"; };
+		EE183DE9165A6F8700C92514 /* SpooftifyPlaylistTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyPlaylistTableViewController.m; path = Playlists/SpooftifyPlaylistTableViewController.m; sourceTree = "<group>"; };
+		EE183DEA165A6FA200C92514 /* playlistsTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playlistsTab.png; path = Playlists/playlistsTab.png; sourceTree = "<group>"; };
+		EE183DEB165A6FA200C92514 /* playlistsTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "playlistsTab@2x.png"; path = "Playlists/playlistsTab@2x.png"; sourceTree = "<group>"; };
+		EE183DEC165A6FA200C92514 /* soundAccessory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soundAccessory.png; path = Playlists/soundAccessory.png; sourceTree = "<group>"; };
+		EE183DED165A6FA200C92514 /* soundAccessory@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "soundAccessory@2x.png"; path = "Playlists/soundAccessory@2x.png"; sourceTree = "<group>"; };
+		EE183DF2165A6FCE00C92514 /* SpooftifySearchNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifySearchNavigationController.h; path = Search/SpooftifySearchNavigationController.h; sourceTree = "<group>"; };
+		EE183DF3165A6FCE00C92514 /* SpooftifySearchNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifySearchNavigationController.m; path = Search/SpooftifySearchNavigationController.m; sourceTree = "<group>"; };
+		EE183DF4165A6FCE00C92514 /* SpooftifySearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifySearchTableViewController.h; path = Search/SpooftifySearchTableViewController.h; sourceTree = "<group>"; };
+		EE183DF5165A6FCE00C92514 /* SpooftifySearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifySearchTableViewController.m; path = Search/SpooftifySearchTableViewController.m; sourceTree = "<group>"; };
+		EE183DF6165A6FE600C92514 /* SpooftifyAlbumTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyAlbumTableViewCell.h; path = Search/SpooftifyAlbumTableViewCell.h; sourceTree = "<group>"; };
+		EE183DF7165A6FE600C92514 /* SpooftifyAlbumTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyAlbumTableViewCell.m; path = Search/SpooftifyAlbumTableViewCell.m; sourceTree = "<group>"; };
+		EE183DF8165A6FE600C92514 /* SpooftifyArtistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyArtistTableViewCell.h; path = Search/SpooftifyArtistTableViewCell.h; sourceTree = "<group>"; };
+		EE183DF9165A6FE600C92514 /* SpooftifyArtistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyArtistTableViewCell.m; path = Search/SpooftifyArtistTableViewCell.m; sourceTree = "<group>"; };
+		EE183DFA165A6FFA00C92514 /* SpooftifyTrackTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyTrackTableViewCell.h; path = Search/SpooftifyTrackTableViewCell.h; sourceTree = "<group>"; };
+		EE183DFB165A6FFA00C92514 /* SpooftifyTrackTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyTrackTableViewCell.m; path = Search/SpooftifyTrackTableViewCell.m; sourceTree = "<group>"; };
+		EE183DFC165A701900C92514 /* albumsSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = albumsSearch.png; path = Search/albumsSearch.png; sourceTree = "<group>"; };
+		EE183DFD165A701900C92514 /* albumsSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "albumsSearch@2x.png"; path = "Search/albumsSearch@2x.png"; sourceTree = "<group>"; };
+		EE183DFE165A701900C92514 /* artistsSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = artistsSearch.png; path = Search/artistsSearch.png; sourceTree = "<group>"; };
+		EE183DFF165A701900C92514 /* artistsSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "artistsSearch@2x.png"; path = "Search/artistsSearch@2x.png"; sourceTree = "<group>"; };
+		EE183E00165A701900C92514 /* songsSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songsSearch.png; path = Search/songsSearch.png; sourceTree = "<group>"; };
+		EE183E01165A701900C92514 /* songsSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "songsSearch@2x.png"; path = "Search/songsSearch@2x.png"; sourceTree = "<group>"; };
+		EE183E08165A704A00C92514 /* SpooftifyProfileNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyProfileNavigationController.h; path = Profile/SpooftifyProfileNavigationController.h; sourceTree = "<group>"; };
+		EE183E09165A704A00C92514 /* SpooftifyProfileNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyProfileNavigationController.m; path = Profile/SpooftifyProfileNavigationController.m; sourceTree = "<group>"; };
+		EE183E0A165A704A00C92514 /* SpooftifyProfileTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyProfileTableViewController.h; path = Profile/SpooftifyProfileTableViewController.h; sourceTree = "<group>"; };
+		EE183E0B165A704A00C92514 /* SpooftifyProfileTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyProfileTableViewController.m; path = Profile/SpooftifyProfileTableViewController.m; sourceTree = "<group>"; };
+		EE183E0C165A705C00C92514 /* profileTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profileTab.png; path = Profile/profileTab.png; sourceTree = "<group>"; };
+		EE183E0D165A705C00C92514 /* profileTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profileTab@2x.png"; path = "Profile/profileTab@2x.png"; sourceTree = "<group>"; };
+		EE183E10165A708100C92514 /* SpooftifySettingsNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifySettingsNavigationController.h; path = Settings/SpooftifySettingsNavigationController.h; sourceTree = "<group>"; };
+		EE183E11165A708100C92514 /* SpooftifySettingsNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifySettingsNavigationController.m; path = Settings/SpooftifySettingsNavigationController.m; sourceTree = "<group>"; };
+		EE183E12165A708100C92514 /* SpooftifySettingsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifySettingsTableViewController.h; path = Settings/SpooftifySettingsTableViewController.h; sourceTree = "<group>"; };
+		EE183E13165A708100C92514 /* SpooftifySettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifySettingsTableViewController.m; path = Settings/SpooftifySettingsTableViewController.m; sourceTree = "<group>"; };
+		EE183E14165A709A00C92514 /* UISwitchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UISwitchTableViewCell.h; path = Settings/UISwitchTableViewCell.h; sourceTree = "<group>"; };
+		EE183E15165A709A00C92514 /* UISwitchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UISwitchTableViewCell.m; path = Settings/UISwitchTableViewCell.m; sourceTree = "<group>"; };
+		EE183E16165A70AE00C92514 /* settingsTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settingsTab.png; path = Settings/settingsTab.png; sourceTree = "<group>"; };
+		EE183E17165A70AE00C92514 /* settingsTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settingsTab@2x.png"; path = "Settings/settingsTab@2x.png"; sourceTree = "<group>"; };
+		EE183E1A165A70FA00C92514 /* SpooftifySongsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifySongsTableViewCell.h; path = Songs/SpooftifySongsTableViewCell.h; sourceTree = "<group>"; };
+		EE183E1B165A70FA00C92514 /* SpooftifySongsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifySongsTableViewCell.m; path = Songs/SpooftifySongsTableViewCell.m; sourceTree = "<group>"; };
+		EE183E1C165A70FA00C92514 /* SpooftifySongsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifySongsTableViewController.h; path = Songs/SpooftifySongsTableViewController.h; sourceTree = "<group>"; };
+		EE183E1D165A70FA00C92514 /* SpooftifySongsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifySongsTableViewController.m; path = Songs/SpooftifySongsTableViewController.m; sourceTree = "<group>"; };
+		EE183E1E165A711000C92514 /* SpooftifyShuffleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyShuffleButton.h; path = Songs/SpooftifyShuffleButton.h; sourceTree = "<group>"; };
+		EE183E1F165A711000C92514 /* SpooftifyShuffleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyShuffleButton.m; path = Songs/SpooftifyShuffleButton.m; sourceTree = "<group>"; };
+		EE183E20165A712300C92514 /* UIImage+Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIImage+Color.h"; path = "Songs/UIImage+Color.h"; sourceTree = "<group>"; };
+		EE183E21165A712300C92514 /* UIImage+Color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Color.m"; path = "Songs/UIImage+Color.m"; sourceTree = "<group>"; };
+		EE183E22165A714A00C92514 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = Songs/add.png; sourceTree = "<group>"; };
+		EE183E23165A714A00C92514 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add@2x.png"; path = "Songs/add@2x.png"; sourceTree = "<group>"; };
+		EE183E24165A714A00C92514 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = album.png; path = Songs/album.png; sourceTree = "<group>"; };
+		EE183E25165A714A00C92514 /* album@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "album@2x.png"; path = "Songs/album@2x.png"; sourceTree = "<group>"; };
+		EE183E26165A714A00C92514 /* artist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = artist.png; path = Songs/artist.png; sourceTree = "<group>"; };
+		EE183E27165A714A00C92514 /* artist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "artist@2x.png"; path = "Songs/artist@2x.png"; sourceTree = "<group>"; };
+		EE183E28165A714A00C92514 /* genericAlbum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = genericAlbum.png; path = Songs/genericAlbum.png; sourceTree = "<group>"; };
+		EE183E29165A714A00C92514 /* genericAlbum@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "genericAlbum@2x.png"; path = "Songs/genericAlbum@2x.png"; sourceTree = "<group>"; };
+		EE183E2A165A714A00C92514 /* shuffle-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shuffle-highlighted.png"; path = "Songs/shuffle-highlighted.png"; sourceTree = "<group>"; };
+		EE183E2B165A714A00C92514 /* shuffle-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shuffle-highlighted@2x.png"; path = "Songs/shuffle-highlighted@2x.png"; sourceTree = "<group>"; };
+		EE183E2C165A714A00C92514 /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shuffle.png; path = Songs/shuffle.png; sourceTree = "<group>"; };
+		EE183E2D165A714A00C92514 /* shuffle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shuffle@2x.png"; path = "Songs/shuffle@2x.png"; sourceTree = "<group>"; };
+		EE183E3A165A716A00C92514 /* SpooftifyAlbumTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpooftifyAlbumTableViewController.h; path = Album/SpooftifyAlbumTableViewController.h; sourceTree = "<group>"; };
+		EE183E3B165A716A00C92514 /* SpooftifyAlbumTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpooftifyAlbumTableViewController.m; path = Album/SpooftifyAlbumTableViewController.m; sourceTree = "<group>"; };
+		EE183E51165A71EE00C92514 /* SpooftifyArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpooftifyArtistTableViewController.h; path = Artist/SpooftifyArtistTableViewController.h; sourceTree = "<group>"; };
+		EE183E52165A71EE00C92514 /* SpooftifyArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpooftifyArtistTableViewController.m; path = Artist/SpooftifyArtistTableViewController.m; sourceTree = "<group>"; };
+		EE183E54165A721600C92514 /* SpooftifyNowPlayingNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpooftifyNowPlayingNavigationController.h; path = "Now Playing/SpooftifyNowPlayingNavigationController.h"; sourceTree = "<group>"; };
+		EE183E55165A721600C92514 /* SpooftifyNowPlayingNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpooftifyNowPlayingNavigationController.m; path = "Now Playing/SpooftifyNowPlayingNavigationController.m"; sourceTree = "<group>"; };
+		EE183E56165A721600C92514 /* SpooftifyNowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpooftifyNowPlayingViewController.h; path = "Now Playing/SpooftifyNowPlayingViewController.h"; sourceTree = "<group>"; };
+		EE183E57165A721600C92514 /* SpooftifyNowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpooftifyNowPlayingViewController.m; path = "Now Playing/SpooftifyNowPlayingViewController.m"; sourceTree = "<group>"; };
+		EE183E5A165A722600C92514 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Shuffle.h"; path = "Now Playing/NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
+		EE183E5B165A722600C92514 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Shuffle.m"; path = "Now Playing/NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
+		EE183E5D165A724500C92514 /* knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = knob.png; path = "Now Playing/knob.png"; sourceTree = "<group>"; };
+		EE183E5E165A724500C92514 /* knob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "knob@2x.png"; path = "Now Playing/knob@2x.png"; sourceTree = "<group>"; };
+		EE183E5F165A724500C92514 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = next.png; path = "Now Playing/next.png"; sourceTree = "<group>"; };
+		EE183E60165A724500C92514 /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "next@2x.png"; path = "Now Playing/next@2x.png"; sourceTree = "<group>"; };
+		EE183E61165A724500C92514 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = "Now Playing/pause.png"; sourceTree = "<group>"; };
+		EE183E62165A724500C92514 /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pause@2x.png"; path = "Now Playing/pause@2x.png"; sourceTree = "<group>"; };
+		EE183E63165A724500C92514 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = "Now Playing/play.png"; sourceTree = "<group>"; };
+		EE183E64165A724500C92514 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play@2x.png"; path = "Now Playing/play@2x.png"; sourceTree = "<group>"; };
+		EE183E65165A724500C92514 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prev.png; path = "Now Playing/prev.png"; sourceTree = "<group>"; };
+		EE183E66165A724500C92514 /* prev@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prev@2x.png"; path = "Now Playing/prev@2x.png"; sourceTree = "<group>"; };
+		EE183E71165A727800C92514 /* Spooftify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spooftify.h; path = Spooftify/Spooftify.h; sourceTree = "<group>"; };
+		EE183E72165A727800C92514 /* Spooftify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Spooftify.m; path = Spooftify/Spooftify.m; sourceTree = "<group>"; };
+		EE183E73165A727800C92514 /* SpooftifyAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpooftifyAlbum.h; path = Spooftify/SpooftifyAlbum.h; sourceTree = "<group>"; };
+		EE183E74165A727800C92514 /* SpooftifyAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpooftifyAlbum.m; path = Spooftify/SpooftifyAlbum.m; sourceTree = "<group>"; };
+		EE183E75165A727800C92514 /* SpooftifyArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpooftifyArtist.h; path = Spooftify/SpooftifyArtist.h; sourceTree = "<group>"; };
+		EE183E76165A727800C92514 /* SpooftifyArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpooftifyArtist.m; path = Spooftify/SpooftifyArtist.m; sourceTree = "<group>"; };
+		EE183E77165A727800C92514 /* SpooftifyPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpooftifyPlaylist.h; path = Spooftify/SpooftifyPlaylist.h; sourceTree = "<group>"; };
+		EE183E78165A727800C92514 /* SpooftifyPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpooftifyPlaylist.m; path = Spooftify/SpooftifyPlaylist.m; sourceTree = "<group>"; };
+		EE183E79165A727800C92514 /* SpooftifyProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpooftifyProfile.h; path = Spooftify/SpooftifyProfile.h; sourceTree = "<group>"; };
+		EE183E7A165A727800C92514 /* SpooftifyProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpooftifyProfile.m; path = Spooftify/SpooftifyProfile.m; sourceTree = "<group>"; };
+		EE183E7B165A727800C92514 /* SpooftifyTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpooftifyTrack.h; path = Spooftify/SpooftifyTrack.h; sourceTree = "<group>"; };
+		EE183E7C165A727800C92514 /* SpooftifyTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpooftifyTrack.m; path = Spooftify/SpooftifyTrack.m; sourceTree = "<group>"; };
+		EE3CEE7516513CDC004AD306 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
+		EE418F401650FCF800753709 /* spooftify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spooftify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE418F441650FCF800753709 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EE418F461650FCF800753709 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EE418F481650FCF800753709 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EE418F4C1650FCF800753709 /* spooftify-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "spooftify-Info.plist"; sourceTree = "<group>"; };
+		EE418F4E1650FCF800753709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE418F501650FCF800753709 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE418F521650FCF800753709 /* spooftify-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spooftify-Prefix.pch"; sourceTree = "<group>"; };
+		EE418F531650FCF800753709 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EE418F541650FCF800753709 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EE418F561650FCF800753709 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EE418F581650FCF800753709 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EE418F5A1650FCF800753709 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EE76FCA91652680300D58253 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EEB7B8EA16588E2D006FB7EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		EEB7B8EC1658D7C0006FB7EE /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		EEB7B8ED1658D7C1006FB7EE /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		EEB7B8EF1658D811006FB7EE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EEB7B8FB165905B4006FB7EE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EED285A81659C7050064332E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		EED285A91659C7050064332E /* Icon-72@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Icon-72@2x"; sourceTree = "<group>"; };
+		EED285AA1659C7050064332E /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		EED285AB1659C7050064332E /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		EED285AC1659C7050064332E /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		EED285AD1659C7050064332E /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		EED285AE1659C7050064332E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		EED285AF1659C7050064332E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		EED285BB1659D19C0064332E /* SpooftifyApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpooftifyApplication.h; sourceTree = "<group>"; };
+		EED285BC1659D19D0064332E /* SpooftifyApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpooftifyApplication.m; sourceTree = "<group>"; };
+		EED285BE1659D91C0064332E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		EEE28A4B16510D6F00B046B5 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		EEE28A4C16510D6F00B046B5 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		EEE28A5016510DBA00B046B5 /* aes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aes.c; sourceTree = "<group>"; };
+		EEE28A5116510DBA00B046B5 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		EEE28A5216510DBA00B046B5 /* auth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = auth.c; sourceTree = "<group>"; };
+		EEE28A5316510DBA00B046B5 /* auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = auth.h; sourceTree = "<group>"; };
+		EEE28A5416510DBA00B046B5 /* buf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buf.c; sourceTree = "<group>"; };
+		EEE28A5516510DBA00B046B5 /* buf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buf.h; sourceTree = "<group>"; };
+		EEE28A5616510DBA00B046B5 /* cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cache.c; sourceTree = "<group>"; };
+		EEE28A5716510DBA00B046B5 /* cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cache.h; sourceTree = "<group>"; };
+		EEE28A5816510DBA00B046B5 /* channel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = channel.c; sourceTree = "<group>"; };
+		EEE28A5916510DBA00B046B5 /* channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = channel.h; sourceTree = "<group>"; };
+		EEE28A5A16510DBA00B046B5 /* commands.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = commands.c; sourceTree = "<group>"; };
+		EEE28A5B16510DBA00B046B5 /* commands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commands.h; sourceTree = "<group>"; };
+		EEE28A5C16510DBA00B046B5 /* despotify-simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "despotify-simple.h"; sourceTree = "<group>"; };
+		EEE28A5D16510DBA00B046B5 /* despotify.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = despotify.c; sourceTree = "<group>"; };
+		EEE28A5E16510DBA00B046B5 /* despotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = despotify.h; sourceTree = "<group>"; };
+		EEE28A5F16510DBA00B046B5 /* dns.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dns.c; sourceTree = "<group>"; };
+		EEE28A6016510DBA00B046B5 /* dns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dns.h; sourceTree = "<group>"; };
+		EEE28A6116510DBA00B046B5 /* ezxml.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ezxml.c; sourceTree = "<group>"; };
+		EEE28A6216510DBA00B046B5 /* ezxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ezxml.h; sourceTree = "<group>"; };
+		EEE28A6316510DBA00B046B5 /* handlers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = handlers.c; sourceTree = "<group>"; };
+		EEE28A6416510DBA00B046B5 /* handlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handlers.h; sourceTree = "<group>"; };
+		EEE28A6516510DBA00B046B5 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		EEE28A6616510DBA00B046B5 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		EEE28A6716510DBA00B046B5 /* keyexchange.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keyexchange.c; sourceTree = "<group>"; };
+		EEE28A6816510DBA00B046B5 /* keyexchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyexchange.h; sourceTree = "<group>"; };
+		EEE28A6916510DBA00B046B5 /* network.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = network.c; sourceTree = "<group>"; };
+		EEE28A6A16510DBA00B046B5 /* network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = network.h; sourceTree = "<group>"; };
+		EEE28A6B16510DBA00B046B5 /* packet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = packet.c; sourceTree = "<group>"; };
+		EEE28A6C16510DBA00B046B5 /* packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packet.h; sourceTree = "<group>"; };
+		EEE28A6D16510DBA00B046B5 /* puzzle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = puzzle.c; sourceTree = "<group>"; };
+		EEE28A6E16510DBA00B046B5 /* puzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puzzle.h; sourceTree = "<group>"; };
+		EEE28A6F16510DBA00B046B5 /* session.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = session.c; sourceTree = "<group>"; };
+		EEE28A7016510DBA00B046B5 /* session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = session.h; sourceTree = "<group>"; };
+		EEE28A7116510DBA00B046B5 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		EEE28A7216510DBA00B046B5 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		EEE28A7316510DBA00B046B5 /* shn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shn.c; sourceTree = "<group>"; };
+		EEE28A7416510DBA00B046B5 /* shn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shn.h; sourceTree = "<group>"; };
+		EEE28A7516510DBA00B046B5 /* sndqueue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sndqueue.c; sourceTree = "<group>"; };
+		EEE28A7616510DBA00B046B5 /* sndqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sndqueue.h; sourceTree = "<group>"; };
+		EEE28A7716510DBA00B046B5 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		EEE28A7816510DBA00B046B5 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		EEE28A7916510DBA00B046B5 /* xml.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xml.c; sourceTree = "<group>"; };
+		EEE28A7A16510DBA00B046B5 /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
+		EEE28B2B16511CC700B046B5 /* Ogg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogg.framework; path = spooftify/OggVorbis/Ogg.framework; sourceTree = "<group>"; };
+		EEE28B2D16511CCE00B046B5 /* Vorbis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vorbis.framework; path = spooftify/OggVorbis/Vorbis.framework; sourceTree = "<group>"; };
+		EEE28B3116511EBE00B046B5 /* SpooftifyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpooftifyTabBarController.h; sourceTree = "<group>"; };
+		EEE28B3216511EBE00B046B5 /* SpooftifyTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpooftifyTabBarController.m; sourceTree = "<group>"; };
+		EEF24D1016550FAB00E3E581 /* TPCircularBuffer+AudioBufferList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "TPCircularBuffer+AudioBufferList.c"; sourceTree = "<group>"; };
+		EEF24D1116550FAB00E3E581 /* TPCircularBuffer+AudioBufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCircularBuffer+AudioBufferList.h"; sourceTree = "<group>"; };
+		EEF24D1216550FAB00E3E581 /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
+		EEF24D1316550FAB00E3E581 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE418F3D1650FCF800753709 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EED285BF1659D91C0064332E /* MediaPlayer.framework in Frameworks */,
+				EEB7B8FC165905B5006FB7EE /* QuartzCore.framework in Frameworks */,
+				EEB7B8F01658D812006FB7EE /* Security.framework in Frameworks */,
+				EE76FCAA1652680300D58253 /* AudioToolbox.framework in Frameworks */,
+				EE3CEE7616513CDC004AD306 /* libresolv.dylib in Frameworks */,
+				EE418F451650FCF800753709 /* UIKit.framework in Frameworks */,
+				EE418F471650FCF800753709 /* Foundation.framework in Frameworks */,
+				EE418F491650FCF800753709 /* CoreGraphics.framework in Frameworks */,
+				EEE28A4D16510D6F00B046B5 /* libcrypto.a in Frameworks */,
+				EEE28A4E16510D6F00B046B5 /* libssl.a in Frameworks */,
+				EEE28B2C16511CC700B046B5 /* Ogg.framework in Frameworks */,
+				EEE28B2E16511CCE00B046B5 /* Vorbis.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE418F351650FCF700753709 = {
+			isa = PBXGroup;
+			children = (
+				EE418F4A1650FCF800753709 /* spooftify */,
+				EE418F431650FCF800753709 /* Frameworks */,
+				EE418F411650FCF800753709 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE418F411650FCF800753709 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE418F401650FCF800753709 /* spooftify.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE418F431650FCF800753709 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EED285BE1659D91C0064332E /* MediaPlayer.framework */,
+				EEB7B8FB165905B4006FB7EE /* QuartzCore.framework */,
+				EEB7B8EF1658D811006FB7EE /* Security.framework */,
+				EE76FCA91652680300D58253 /* AudioToolbox.framework */,
+				EE3CEE7516513CDC004AD306 /* libresolv.dylib */,
+				EEE28B2D16511CCE00B046B5 /* Vorbis.framework */,
+				EEE28B2B16511CC700B046B5 /* Ogg.framework */,
+				EE418F441650FCF800753709 /* UIKit.framework */,
+				EE418F461650FCF800753709 /* Foundation.framework */,
+				EE418F481650FCF800753709 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE418F4A1650FCF800753709 /* spooftify */ = {
+			isa = PBXGroup;
+			children = (
+				EE183DDB165A6E4900C92514 /* README.mdown */,
+				EEF24D421656709300E3E581 /* Login */,
+				EEF24D43165670AA00E3E581 /* Playlists */,
+				EE7F2616165672EA007F000D /* Search */,
+				EE7F261D1656764C007F000D /* Profile */,
+				EE7F262816567EF2007F000D /* Settings */,
+				EEF24D44165670CD00E3E581 /* Songs */,
+				EEB7B8DF165850E3006FB7EE /* Album */,
+				EEB7B8E31658658B006FB7EE /* Artist */,
+				EEF24D451656712800E3E581 /* Now Playing */,
+				EE7F2636165726F4007F000D /* Spooftify */,
+				EE418F531650FCF800753709 /* AppDelegate.h */,
+				EE418F541650FCF800753709 /* AppDelegate.m */,
+				EEE28B3116511EBE00B046B5 /* SpooftifyTabBarController.h */,
+				EEE28B3216511EBE00B046B5 /* SpooftifyTabBarController.m */,
+				EEB7B8EC1658D7C0006FB7EE /* KeychainItemWrapper.h */,
+				EEB7B8ED1658D7C1006FB7EE /* KeychainItemWrapper.m */,
+				EED285BB1659D19C0064332E /* SpooftifyApplication.h */,
+				EED285BC1659D19D0064332E /* SpooftifyApplication.m */,
+				EEF24D0E16550FAB00E3E581 /* TPCircularBuffer */,
+				EEE289FC16510D6F00B046B5 /* openssl */,
+				EEE28A4F16510DBA00B046B5 /* despotify */,
+				EE418F4B1650FCF800753709 /* Supporting Files */,
+			);
+			path = spooftify;
+			sourceTree = "<group>";
+		};
+		EE418F4B1650FCF800753709 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE418F4C1650FCF800753709 /* spooftify-Info.plist */,
+				EE418F4D1650FCF800753709 /* InfoPlist.strings */,
+				EE418F501650FCF800753709 /* main.m */,
+				EE418F521650FCF800753709 /* spooftify-Prefix.pch */,
+				EE418F561650FCF800753709 /* Default.png */,
+				EE418F581650FCF800753709 /* Default@2x.png */,
+				EE418F5A1650FCF800753709 /* Default-568h@2x.png */,
+				EED285A81659C7050064332E /* Icon-72.png */,
+				EED285A91659C7050064332E /* Icon-72@2x */,
+				EED285AA1659C7050064332E /* Icon-Small-50.png */,
+				EED285AB1659C7050064332E /* Icon-Small-50@2x.png */,
+				EED285AC1659C7050064332E /* Icon-Small.png */,
+				EED285AD1659C7050064332E /* Icon-Small@2x.png */,
+				EED285AE1659C7050064332E /* Icon.png */,
+				EED285AF1659C7050064332E /* Icon@2x.png */,
+				EEB7B8EA16588E2D006FB7EE /* Settings.bundle */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE7F2616165672EA007F000D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EE183DFC165A701900C92514 /* albumsSearch.png */,
+				EE183DFD165A701900C92514 /* albumsSearch@2x.png */,
+				EE183DFE165A701900C92514 /* artistsSearch.png */,
+				EE183DFF165A701900C92514 /* artistsSearch@2x.png */,
+				EE183E00165A701900C92514 /* songsSearch.png */,
+				EE183E01165A701900C92514 /* songsSearch@2x.png */,
+				EE183DF2165A6FCE00C92514 /* SpooftifySearchNavigationController.h */,
+				EE183DF3165A6FCE00C92514 /* SpooftifySearchNavigationController.m */,
+				EE183DF4165A6FCE00C92514 /* SpooftifySearchTableViewController.h */,
+				EE183DF5165A6FCE00C92514 /* SpooftifySearchTableViewController.m */,
+				EE183DF6165A6FE600C92514 /* SpooftifyAlbumTableViewCell.h */,
+				EE183DF7165A6FE600C92514 /* SpooftifyAlbumTableViewCell.m */,
+				EE183DF8165A6FE600C92514 /* SpooftifyArtistTableViewCell.h */,
+				EE183DF9165A6FE600C92514 /* SpooftifyArtistTableViewCell.m */,
+				EE183DFA165A6FFA00C92514 /* SpooftifyTrackTableViewCell.h */,
+				EE183DFB165A6FFA00C92514 /* SpooftifyTrackTableViewCell.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		EE7F261D1656764C007F000D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EE183E0C165A705C00C92514 /* profileTab.png */,
+				EE183E0D165A705C00C92514 /* profileTab@2x.png */,
+				EE183E08165A704A00C92514 /* SpooftifyProfileNavigationController.h */,
+				EE183E09165A704A00C92514 /* SpooftifyProfileNavigationController.m */,
+				EE183E0A165A704A00C92514 /* SpooftifyProfileTableViewController.h */,
+				EE183E0B165A704A00C92514 /* SpooftifyProfileTableViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		EE7F262816567EF2007F000D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EE183E16165A70AE00C92514 /* settingsTab.png */,
+				EE183E17165A70AE00C92514 /* settingsTab@2x.png */,
+				EE183E10165A708100C92514 /* SpooftifySettingsNavigationController.h */,
+				EE183E11165A708100C92514 /* SpooftifySettingsNavigationController.m */,
+				EE183E12165A708100C92514 /* SpooftifySettingsTableViewController.h */,
+				EE183E13165A708100C92514 /* SpooftifySettingsTableViewController.m */,
+				EE183E14165A709A00C92514 /* UISwitchTableViewCell.h */,
+				EE183E15165A709A00C92514 /* UISwitchTableViewCell.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		EE7F2636165726F4007F000D /* Spooftify */ = {
+			isa = PBXGroup;
+			children = (
+				EE183E71165A727800C92514 /* Spooftify.h */,
+				EE183E72165A727800C92514 /* Spooftify.m */,
+				EE183E73165A727800C92514 /* SpooftifyAlbum.h */,
+				EE183E74165A727800C92514 /* SpooftifyAlbum.m */,
+				EE183E75165A727800C92514 /* SpooftifyArtist.h */,
+				EE183E76165A727800C92514 /* SpooftifyArtist.m */,
+				EE183E77165A727800C92514 /* SpooftifyPlaylist.h */,
+				EE183E78165A727800C92514 /* SpooftifyPlaylist.m */,
+				EE183E79165A727800C92514 /* SpooftifyProfile.h */,
+				EE183E7A165A727800C92514 /* SpooftifyProfile.m */,
+				EE183E7B165A727800C92514 /* SpooftifyTrack.h */,
+				EE183E7C165A727800C92514 /* SpooftifyTrack.m */,
+			);
+			name = Spooftify;
+			sourceTree = "<group>";
+		};
+		EEB7B8DF165850E3006FB7EE /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				EE183E3A165A716A00C92514 /* SpooftifyAlbumTableViewController.h */,
+				EE183E3B165A716A00C92514 /* SpooftifyAlbumTableViewController.m */,
+			);
+			name = Album;
+			sourceTree = "<group>";
+		};
+		EEB7B8E31658658B006FB7EE /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				EE183E51165A71EE00C92514 /* SpooftifyArtistTableViewController.h */,
+				EE183E52165A71EE00C92514 /* SpooftifyArtistTableViewController.m */,
+			);
+			name = Artist;
+			sourceTree = "<group>";
+		};
+		EEE289FC16510D6F00B046B5 /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				EEE28A4A16510D6F00B046B5 /* lib */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
+		EEE28A4A16510D6F00B046B5 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				EEE28A4B16510D6F00B046B5 /* libcrypto.a */,
+				EEE28A4C16510D6F00B046B5 /* libssl.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		EEE28A4F16510DBA00B046B5 /* despotify */ = {
+			isa = PBXGroup;
+			children = (
+				EEE28A5016510DBA00B046B5 /* aes.c */,
+				EEE28A5116510DBA00B046B5 /* aes.h */,
+				EEE28A5216510DBA00B046B5 /* auth.c */,
+				EEE28A5316510DBA00B046B5 /* auth.h */,
+				EEE28A5416510DBA00B046B5 /* buf.c */,
+				EEE28A5516510DBA00B046B5 /* buf.h */,
+				EEE28A5616510DBA00B046B5 /* cache.c */,
+				EEE28A5716510DBA00B046B5 /* cache.h */,
+				EEE28A5816510DBA00B046B5 /* channel.c */,
+				EEE28A5916510DBA00B046B5 /* channel.h */,
+				EEE28A5A16510DBA00B046B5 /* commands.c */,
+				EEE28A5B16510DBA00B046B5 /* commands.h */,
+				EEE28A5C16510DBA00B046B5 /* despotify-simple.h */,
+				EEE28A5D16510DBA00B046B5 /* despotify.c */,
+				EEE28A5E16510DBA00B046B5 /* despotify.h */,
+				EEE28A5F16510DBA00B046B5 /* dns.c */,
+				EEE28A6016510DBA00B046B5 /* dns.h */,
+				EEE28A6116510DBA00B046B5 /* ezxml.c */,
+				EEE28A6216510DBA00B046B5 /* ezxml.h */,
+				EEE28A6316510DBA00B046B5 /* handlers.c */,
+				EEE28A6416510DBA00B046B5 /* handlers.h */,
+				EEE28A6516510DBA00B046B5 /* hmac.c */,
+				EEE28A6616510DBA00B046B5 /* hmac.h */,
+				EEE28A6716510DBA00B046B5 /* keyexchange.c */,
+				EEE28A6816510DBA00B046B5 /* keyexchange.h */,
+				EEE28A6916510DBA00B046B5 /* network.c */,
+				EEE28A6A16510DBA00B046B5 /* network.h */,
+				EEE28A6B16510DBA00B046B5 /* packet.c */,
+				EEE28A6C16510DBA00B046B5 /* packet.h */,
+				EEE28A6D16510DBA00B046B5 /* puzzle.c */,
+				EEE28A6E16510DBA00B046B5 /* puzzle.h */,
+				EEE28A6F16510DBA00B046B5 /* session.c */,
+				EEE28A7016510DBA00B046B5 /* session.h */,
+				EEE28A7116510DBA00B046B5 /* sha1.c */,
+				EEE28A7216510DBA00B046B5 /* sha1.h */,
+				EEE28A7316510DBA00B046B5 /* shn.c */,
+				EEE28A7416510DBA00B046B5 /* shn.h */,
+				EEE28A7516510DBA00B046B5 /* sndqueue.c */,
+				EEE28A7616510DBA00B046B5 /* sndqueue.h */,
+				EEE28A7716510DBA00B046B5 /* util.c */,
+				EEE28A7816510DBA00B046B5 /* util.h */,
+				EEE28A7916510DBA00B046B5 /* xml.c */,
+				EEE28A7A16510DBA00B046B5 /* xml.h */,
+			);
+			path = despotify;
+			sourceTree = "<group>";
+		};
+		EEF24D0E16550FAB00E3E581 /* TPCircularBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				EEF24D1016550FAB00E3E581 /* TPCircularBuffer+AudioBufferList.c */,
+				EEF24D1116550FAB00E3E581 /* TPCircularBuffer+AudioBufferList.h */,
+				EEF24D1216550FAB00E3E581 /* TPCircularBuffer.c */,
+				EEF24D1316550FAB00E3E581 /* TPCircularBuffer.h */,
+			);
+			path = TPCircularBuffer;
+			sourceTree = "<group>";
+		};
+		EEF24D421656709300E3E581 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EE183DDE165A6F1A00C92514 /* SpooftifyLoginViewController.h */,
+				EE183DDF165A6F1A00C92514 /* SpooftifyLoginViewController.m */,
+				EE183DE0165A6F3300C92514 /* UITextFieldTableViewCell.h */,
+				EE183DE1165A6F3300C92514 /* UITextFieldTableViewCell.m */,
+				EE183DE2165A6F4F00C92514 /* UIGrayGradientButton.h */,
+				EE183DE3165A6F4F00C92514 /* UIGrayGradientButton.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		EEF24D43165670AA00E3E581 /* Playlists */ = {
+			isa = PBXGroup;
+			children = (
+				EE183DEA165A6FA200C92514 /* playlistsTab.png */,
+				EE183DEB165A6FA200C92514 /* playlistsTab@2x.png */,
+				EE183DEC165A6FA200C92514 /* soundAccessory.png */,
+				EE183DED165A6FA200C92514 /* soundAccessory@2x.png */,
+				EE183DE4165A6F8700C92514 /* SpooftifyPlaylistNavigationController.h */,
+				EE183DE5165A6F8700C92514 /* SpooftifyPlaylistNavigationController.m */,
+				EE183DE6165A6F8700C92514 /* SpooftifyPlaylistTableViewCell.h */,
+				EE183DE7165A6F8700C92514 /* SpooftifyPlaylistTableViewCell.m */,
+				EE183DE8165A6F8700C92514 /* SpooftifyPlaylistTableViewController.h */,
+				EE183DE9165A6F8700C92514 /* SpooftifyPlaylistTableViewController.m */,
+			);
+			name = Playlists;
+			sourceTree = "<group>";
+		};
+		EEF24D44165670CD00E3E581 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				EE183E22165A714A00C92514 /* add.png */,
+				EE183E23165A714A00C92514 /* add@2x.png */,
+				EE183E24165A714A00C92514 /* album.png */,
+				EE183E25165A714A00C92514 /* album@2x.png */,
+				EE183E26165A714A00C92514 /* artist.png */,
+				EE183E27165A714A00C92514 /* artist@2x.png */,
+				EE183E28165A714A00C92514 /* genericAlbum.png */,
+				EE183E29165A714A00C92514 /* genericAlbum@2x.png */,
+				EE183E2A165A714A00C92514 /* shuffle-highlighted.png */,
+				EE183E2B165A714A00C92514 /* shuffle-highlighted@2x.png */,
+				EE183E2C165A714A00C92514 /* shuffle.png */,
+				EE183E2D165A714A00C92514 /* shuffle@2x.png */,
+				EE183E1A165A70FA00C92514 /* SpooftifySongsTableViewCell.h */,
+				EE183E1B165A70FA00C92514 /* SpooftifySongsTableViewCell.m */,
+				EE183E1C165A70FA00C92514 /* SpooftifySongsTableViewController.h */,
+				EE183E1D165A70FA00C92514 /* SpooftifySongsTableViewController.m */,
+				EE183E1E165A711000C92514 /* SpooftifyShuffleButton.h */,
+				EE183E1F165A711000C92514 /* SpooftifyShuffleButton.m */,
+				EE183E20165A712300C92514 /* UIImage+Color.h */,
+				EE183E21165A712300C92514 /* UIImage+Color.m */,
+			);
+			name = Songs;
+			sourceTree = "<group>";
+		};
+		EEF24D451656712800E3E581 /* Now Playing */ = {
+			isa = PBXGroup;
+			children = (
+				EE183E5D165A724500C92514 /* knob.png */,
+				EE183E5E165A724500C92514 /* knob@2x.png */,
+				EE183E5F165A724500C92514 /* next.png */,
+				EE183E60165A724500C92514 /* next@2x.png */,
+				EE183E61165A724500C92514 /* pause.png */,
+				EE183E62165A724500C92514 /* pause@2x.png */,
+				EE183E63165A724500C92514 /* play.png */,
+				EE183E64165A724500C92514 /* play@2x.png */,
+				EE183E65165A724500C92514 /* prev.png */,
+				EE183E66165A724500C92514 /* prev@2x.png */,
+				EE183E54165A721600C92514 /* SpooftifyNowPlayingNavigationController.h */,
+				EE183E55165A721600C92514 /* SpooftifyNowPlayingNavigationController.m */,
+				EE183E56165A721600C92514 /* SpooftifyNowPlayingViewController.h */,
+				EE183E57165A721600C92514 /* SpooftifyNowPlayingViewController.m */,
+				EE183E5A165A722600C92514 /* NSMutableArray+Shuffle.h */,
+				EE183E5B165A722600C92514 /* NSMutableArray+Shuffle.m */,
+			);
+			name = "Now Playing";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE418F3F1650FCF800753709 /* spooftify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE418F701650FCF800753709 /* Build configuration list for PBXNativeTarget "spooftify" */;
+			buildPhases = (
+				EE418F3C1650FCF800753709 /* Sources */,
+				EE418F3D1650FCF800753709 /* Frameworks */,
+				EE418F3E1650FCF800753709 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = spooftify;
+			productName = spooftify;
+			productReference = EE418F401650FCF800753709 /* spooftify.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE418F371650FCF800753709 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Will Sackfield";
+			};
+			buildConfigurationList = EE418F3A1650FCF800753709 /* Build configuration list for PBXProject "spooftify" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EE418F351650FCF700753709;
+			productRefGroup = EE418F411650FCF800753709 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE418F3F1650FCF800753709 /* spooftify */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE418F3E1650FCF800753709 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE418F4F1650FCF800753709 /* InfoPlist.strings in Resources */,
+				EE418F571650FCF800753709 /* Default.png in Resources */,
+				EE418F591650FCF800753709 /* Default@2x.png in Resources */,
+				EE418F5B1650FCF800753709 /* Default-568h@2x.png in Resources */,
+				EEB7B8EB16588E2D006FB7EE /* Settings.bundle in Resources */,
+				EE183DDC165A6E4900C92514 /* README.mdown in Resources */,
+				EE183DEE165A6FA200C92514 /* playlistsTab.png in Resources */,
+				EE183DEF165A6FA200C92514 /* playlistsTab@2x.png in Resources */,
+				EE183DF0165A6FA200C92514 /* soundAccessory.png in Resources */,
+				EE183DF1165A6FA200C92514 /* soundAccessory@2x.png in Resources */,
+				EE183E02165A701900C92514 /* albumsSearch.png in Resources */,
+				EE183E03165A701900C92514 /* albumsSearch@2x.png in Resources */,
+				EE183E04165A701900C92514 /* artistsSearch.png in Resources */,
+				EE183E05165A701900C92514 /* artistsSearch@2x.png in Resources */,
+				EE183E06165A701900C92514 /* songsSearch.png in Resources */,
+				EE183E07165A701900C92514 /* songsSearch@2x.png in Resources */,
+				EE183E0E165A705C00C92514 /* profileTab.png in Resources */,
+				EE183E0F165A705C00C92514 /* profileTab@2x.png in Resources */,
+				EE183E18165A70AE00C92514 /* settingsTab.png in Resources */,
+				EE183E19165A70AE00C92514 /* settingsTab@2x.png in Resources */,
+				EE183E2E165A714A00C92514 /* add.png in Resources */,
+				EE183E2F165A714A00C92514 /* add@2x.png in Resources */,
+				EE183E30165A714A00C92514 /* album.png in Resources */,
+				EE183E31165A714A00C92514 /* album@2x.png in Resources */,
+				EE183E32165A714A00C92514 /* artist.png in Resources */,
+				EE183E33165A714A00C92514 /* artist@2x.png in Resources */,
+				EE183E34165A714A00C92514 /* genericAlbum.png in Resources */,
+				EE183E35165A714A00C92514 /* genericAlbum@2x.png in Resources */,
+				EE183E36165A714A00C92514 /* shuffle-highlighted.png in Resources */,
+				EE183E37165A714A00C92514 /* shuffle-highlighted@2x.png in Resources */,
+				EE183E38165A714A00C92514 /* shuffle.png in Resources */,
+				EE183E39165A714A00C92514 /* shuffle@2x.png in Resources */,
+				EE183E67165A724500C92514 /* knob.png in Resources */,
+				EE183E68165A724500C92514 /* knob@2x.png in Resources */,
+				EE183E69165A724500C92514 /* next.png in Resources */,
+				EE183E6A165A724500C92514 /* next@2x.png in Resources */,
+				EE183E6B165A724500C92514 /* pause.png in Resources */,
+				EE183E6C165A724500C92514 /* pause@2x.png in Resources */,
+				EE183E6D165A724500C92514 /* play.png in Resources */,
+				EE183E6E165A724500C92514 /* play@2x.png in Resources */,
+				EE183E6F165A724500C92514 /* prev.png in Resources */,
+				EE183E70165A724500C92514 /* prev@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE418F3C1650FCF800753709 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE418F511650FCF800753709 /* main.m in Sources */,
+				EE418F551650FCF800753709 /* AppDelegate.m in Sources */,
+				EEE28A7B16510DBA00B046B5 /* aes.c in Sources */,
+				EEE28A7C16510DBA00B046B5 /* auth.c in Sources */,
+				EEE28A7D16510DBA00B046B5 /* buf.c in Sources */,
+				EEE28A7E16510DBA00B046B5 /* cache.c in Sources */,
+				EEE28A7F16510DBA00B046B5 /* channel.c in Sources */,
+				EEE28A8016510DBA00B046B5 /* commands.c in Sources */,
+				EEE28A8116510DBA00B046B5 /* despotify.c in Sources */,
+				EEE28A8216510DBA00B046B5 /* dns.c in Sources */,
+				EEE28A8316510DBA00B046B5 /* ezxml.c in Sources */,
+				EEE28A8416510DBA00B046B5 /* handlers.c in Sources */,
+				EEE28A8516510DBA00B046B5 /* hmac.c in Sources */,
+				EEE28A8616510DBA00B046B5 /* keyexchange.c in Sources */,
+				EEE28A8716510DBA00B046B5 /* network.c in Sources */,
+				EEE28A8816510DBA00B046B5 /* packet.c in Sources */,
+				EEE28A8916510DBA00B046B5 /* puzzle.c in Sources */,
+				EEE28A8A16510DBA00B046B5 /* session.c in Sources */,
+				EEE28A8B16510DBA00B046B5 /* sha1.c in Sources */,
+				EEE28A8C16510DBA00B046B5 /* shn.c in Sources */,
+				EEE28A8D16510DBA00B046B5 /* sndqueue.c in Sources */,
+				EEE28A8E16510DBA00B046B5 /* util.c in Sources */,
+				EEE28A8F16510DBA00B046B5 /* xml.c in Sources */,
+				EEE28B3316511EBE00B046B5 /* SpooftifyTabBarController.m in Sources */,
+				EEF24D1516550FAB00E3E581 /* TPCircularBuffer+AudioBufferList.c in Sources */,
+				EEF24D1616550FAB00E3E581 /* TPCircularBuffer.c in Sources */,
+				EEB7B8EE1658D7C3006FB7EE /* KeychainItemWrapper.m in Sources */,
+				EED285BD1659D19E0064332E /* SpooftifyApplication.m in Sources */,
+				EE183E3C165A717400C92514 /* SpooftifyAlbumTableViewController.m in Sources */,
+				EE183E3D165A717A00C92514 /* SpooftifyLoginViewController.m in Sources */,
+				EE183E3E165A717E00C92514 /* UITextFieldTableViewCell.m in Sources */,
+				EE183E3F165A718100C92514 /* UIGrayGradientButton.m in Sources */,
+				EE183E40165A718800C92514 /* SpooftifyPlaylistNavigationController.m in Sources */,
+				EE183E41165A718C00C92514 /* SpooftifyPlaylistTableViewCell.m in Sources */,
+				EE183E42165A718F00C92514 /* SpooftifyPlaylistTableViewController.m in Sources */,
+				EE183E43165A719400C92514 /* SpooftifySearchNavigationController.m in Sources */,
+				EE183E44165A719700C92514 /* SpooftifySearchTableViewController.m in Sources */,
+				EE183E45165A719A00C92514 /* SpooftifyAlbumTableViewCell.m in Sources */,
+				EE183E46165A719C00C92514 /* SpooftifyArtistTableViewCell.m in Sources */,
+				EE183E47165A719E00C92514 /* SpooftifyTrackTableViewCell.m in Sources */,
+				EE183E48165A71A400C92514 /* SpooftifyProfileNavigationController.m in Sources */,
+				EE183E49165A71A700C92514 /* SpooftifyProfileTableViewController.m in Sources */,
+				EE183E4A165A71AF00C92514 /* SpooftifySettingsNavigationController.m in Sources */,
+				EE183E4B165A71B200C92514 /* SpooftifySettingsTableViewController.m in Sources */,
+				EE183E4C165A71B500C92514 /* UISwitchTableViewCell.m in Sources */,
+				EE183E4D165A71BB00C92514 /* SpooftifySongsTableViewCell.m in Sources */,
+				EE183E4E165A71BE00C92514 /* SpooftifySongsTableViewController.m in Sources */,
+				EE183E4F165A71C000C92514 /* SpooftifyShuffleButton.m in Sources */,
+				EE183E50165A71C300C92514 /* UIImage+Color.m in Sources */,
+				EE183E53165A71EE00C92514 /* SpooftifyArtistTableViewController.m in Sources */,
+				EE183E58165A721600C92514 /* SpooftifyNowPlayingNavigationController.m in Sources */,
+				EE183E59165A721600C92514 /* SpooftifyNowPlayingViewController.m in Sources */,
+				EE183E5C165A722600C92514 /* NSMutableArray+Shuffle.m in Sources */,
+				EE183E7D165A727800C92514 /* Spooftify.m in Sources */,
+				EE183E7E165A727800C92514 /* SpooftifyAlbum.m in Sources */,
+				EE183E7F165A727800C92514 /* SpooftifyArtist.m in Sources */,
+				EE183E80165A727800C92514 /* SpooftifyPlaylist.m in Sources */,
+				EE183E81165A727800C92514 /* SpooftifyProfile.m in Sources */,
+				EE183E82165A727800C92514 /* SpooftifyTrack.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EE418F4D1650FCF800753709 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE418F4E1650FCF800753709 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE418F6E1650FCF800753709 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE418F6F1650FCF800753709 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE418F711650FCF800753709 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: William sackfield (SFQY4D2HR6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: William sackfield (SFQY4D2HR6)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/spooftify/OggVorbis\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "spooftify/spooftify-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/spooftify/openssl/include/";
+				INFOPLIST_FILE = "spooftify/spooftify-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/spooftify/openssl/lib\"",
+				);
+				OTHER_LDFLAGS = "-lz";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "260239C8-7C19-4001-BAA7-0FA584AF4019";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "260239C8-7C19-4001-BAA7-0FA584AF4019";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/spooftify/openssl/include/";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EE418F721650FCF800753709 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: William sackfield (SFQY4D2HR6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: William sackfield (SFQY4D2HR6)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/spooftify/OggVorbis\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "spooftify/spooftify-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/spooftify/openssl/include/";
+				INFOPLIST_FILE = "spooftify/spooftify-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/spooftify/openssl/lib\"",
+				);
+				OTHER_LDFLAGS = "-lz";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "260239C8-7C19-4001-BAA7-0FA584AF4019";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "260239C8-7C19-4001-BAA7-0FA584AF4019";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/spooftify/openssl/include/";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE418F3A1650FCF800753709 /* Build configuration list for PBXProject "spooftify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE418F6E1650FCF800753709 /* Debug */,
+				EE418F6F1650FCF800753709 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE418F701650FCF800753709 /* Build configuration list for PBXNativeTarget "spooftify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE418F711650FCF800753709 /* Debug */,
+				EE418F721650FCF800753709 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE418F371650FCF800753709 /* Project object */;
+}

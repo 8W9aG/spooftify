@@ -1,0 +1,27 @@
+Spooftify 0.1
+==============
+
+Spooftify is a third party Spotify client for iOS using the [despotify](http://despotify.se/ "despotify - the open source Spotify client library") library. It is coded with ARC and no IB files.
+
+Distributed under the [MIT license](http://opensource.org/licenses/mit-license.php)
+
+Dependencies
+------------
+
+- [despotify](http://despotify.se/ "despotify - the open source Spotify client and library")
+- [OpenSSL](http://www.openssl.org "OpenSSL")
+- [Vorbis](http://xiph.org/vorbis/ "Vorbis")
+- [zlib](http://zlib.net "A Massively Spiffy Yet Delicately Unobtrusive Compression Library")
+
+Third party code
+----------------
+
+- [TPCircularBuffer](https://github.com/michaeltyson/TPCircularBuffer "A simple, fast circular buffer implementation for audio processing")
+- [KeychainItemWrapper](http://developer.apple.com/library/ios/#samplecode/GenericKeychain/Introduction/Intro.html "Keychain Item Wrapper")
+
+TODO
+----
+
+- Fix threading issues
+- Support for different languages
+- Proper iPad UI
