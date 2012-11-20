@@ -48,6 +48,8 @@ typedef enum SpooftifyPlayStateEnum {
     double timeSeconds;
     
     SpooftifyProfile* profile;
+    
+    dispatch_queue_t queue;
 }
 
 @property (nonatomic,readonly) BOOL loggedIn;

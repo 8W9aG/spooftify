@@ -129,6 +129,8 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
     sharedSpooftify = self;
     playState = SpooftifyPlayStateNone;
     
+    queue = dispatch_queue_create("com.spooftify.despotify",NULL);
+    
     TPCircularBufferInit(&buffer,44100);
     
     AudioComponentDescription defaultOutputDescription;
@@ -163,7 +165,6 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
 
 -(void) loginWithUsername:(NSString*)username password:(NSString*)password
 {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0ul);
     dispatch_async(queue,^{
         loggedIn = despotify_authenticate(ds,[username UTF8String],[password UTF8String]);
         // If failed try again, sometimes works a second time
@@ -190,7 +191,6 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
 {
     if(!loggedIn) return NO;
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0ul);
     dispatch_async(queue,^{
         struct playlist* rootlist = despotify_get_stored_playlists(ds);
         dispatch_sync(dispatch_get_main_queue(),^{
@@ -204,8 +204,8 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
             }
             while(tmpList != NULL);
             [[NSNotificationCenter defaultCenter] postNotificationName:SpooftifyPlaylistsFoundNotification object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:playlistArray,@"Playlists",nil]];
-            despotify_free_playlist(rootlist);
         });
+        despotify_free_playlist(rootlist);
     });
     
     return YES;
@@ -230,7 +230,8 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
     
     OSErr err = AudioUnitInitialize(audioUnit);
     if(err != noErr){ NSLog(@"Error initializing unit: %d",err); return; }
-    if(err != noErr){ NSLog(@"Error starting unit: %hd",err); return; }err = AudioOutputUnitStart(audioUnit);
+    err = AudioOutputUnitStart(audioUnit);
+    if(err != noErr){ NSLog(@"Error starting unit: %hd",err); return; }
 }
 
 -(void) pause
@@ -277,16 +278,19 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
 
 -(UIImage*) imageWithId:(NSString*)coverId
 {
-    NSLog(@"%s",__PRETTY_FUNCTION__);
-    int coverIdLen = [coverId length];
-    char _coverId[coverIdLen+1];
-    memset(_coverId,'\0',coverIdLen+1);
-    strcpy(_coverId,[coverId UTF8String]);
-    
-    int len = 0;
-    void* jpeg = despotify_get_image(ds,_coverId,&len,NO);
-    
-    return [UIImage imageWithData:[NSData dataWithBytes:jpeg length:len]];
+    __block UIImage* coverImage = [UIImage imageNamed:@"genericAlbum"];
+    dispatch_sync(queue,^{
+        int coverIdLen = [coverId length];
+        char _coverId[coverIdLen+1];
+        memset(_coverId,'\0',coverIdLen+1);
+        strcpy(_coverId,[coverId UTF8String]);
+        
+        int len = 0;
+        void* jpeg = despotify_get_image(ds,_coverId,&len,NO);
+        if(jpeg != NULL)
+            coverImage = [UIImage imageWithData:[NSData dataWithBytes:jpeg length:len]];
+    });
+    return coverImage;
 }
 
 -(UIImage*) thumbnailWithId:(NSString*)coverId
@@ -327,7 +331,6 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
 
 -(void) search:(NSString*)query atOffset:(int)offset
 {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0ul);
     dispatch_async(queue,^{
         int queryLen = [query length];
         char _query[queryLen+1];
@@ -376,7 +379,6 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
 
 -(void) findAlbum:(NSString*)albumId
 {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0ul);
     dispatch_async(queue,^{
         int albumIdLen = [albumId length];
         char _albumId[albumIdLen+1];
@@ -397,7 +399,6 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
 
 -(void) findArtist:(NSString*)artistId
 {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0ul);
     dispatch_async(queue,^{
         int artistIdLen = [artistId length];
         char _artistId[artistIdLen+1];
@@ -439,6 +440,11 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
         despotifyThread = nil;
     }
     sharedSpooftify = nil;
+}
+
+-(void) dealloc
+{
+    [self logout];
 }
 
 @end

@@ -182,7 +182,11 @@
 -(void) trackEnded:(NSNotification*)notification
 {
     if(currentIndex < [trackQueue count]-1)
-        [self setTrack:[trackQueue objectAtIndex:++currentIndex]];
+    {
+        dispatch_sync(dispatch_get_main_queue(),^{
+            [self setTrack:[trackQueue objectAtIndex:++currentIndex]];
+        });
+    }
 }
 
 -(void) timeSliderValueChanged:(UISlider*)_timeSlider
@@ -234,7 +238,9 @@
     [[self navigationItem] setTitleView:titleView];
     
     [backSkipButton setEnabled:(currentIndex == 0) ? NO : YES];
+    NSLog(@"backSkipButton enabled %d",backSkipButton.enabled);
     [forwardSkipButton setEnabled:([trackQueue count] == currentIndex+1) ? NO : YES];
+    NSLog(@"forwardSkipButton enabled %d",forwardSkipButton.enabled);
     
     int seconds = [track milliseconds]/1000;
     [totalTimeLbl setText:[NSString stringWithFormat:@"%d:%02d",seconds/60,seconds%60]];

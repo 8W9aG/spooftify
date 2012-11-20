@@ -524,6 +524,34 @@ static struct buf* despotify_inflate(unsigned char* data, int len)
                 /* end of input */
                 loop = false;
                 break;
+            
+            case Z_BUF_ERROR:
+                DSFYDEBUG("error: inflate() Z_BUF_ERROR");
+                loop = false;
+                buf_free(b);
+                b = NULL;
+                break;
+            
+            case Z_MEM_ERROR:
+                DSFYDEBUG("error: inflate() Z_MEM_ERROR");
+                loop = false;
+                buf_free(b);
+                b = NULL;
+                break;
+            
+            case Z_STREAM_ERROR:
+                DSFYDEBUG("error: inflate() Z_STREAM_ERROR");
+                loop = false;
+                buf_free(b);
+                b = NULL;
+                break;
+            
+            case Z_NEED_DICT:
+                DSFYDEBUG("error: inflate() Z_NEED_DICT");
+                loop = false;
+                buf_free(b);
+                b = NULL;
+                break;
 
             default:
                 /* error */
@@ -1013,7 +1041,7 @@ struct playlist* despotify_get_stored_playlists(struct despotify_session *ds)
     bool old_use_cache = ds->use_cache;
 
     /* disable caching for meta playlist */
-    ds->use_cache = false;
+    //ds->use_cache = false;
 
     /* load list of lists */
     DSFYDEBUG("Requesting meta playlist\n");
@@ -1322,14 +1350,17 @@ struct album_browse* despotify_get_album(struct despotify_session* ds,
         ds->last_error = "Timeout while browsing album";
         return NULL;
     }
-
+    
     struct buf* b = despotify_inflate(ds->response->ptr, ds->response->len);
     if (b) {
         /* store album xml in cache. */
         if (ds->use_cache)
+        {
             cache_store((unsigned char*)album_id, b->ptr, b->len);
+        }
 
         xml_parse_browse_album(ds->album_browse, b->ptr, b->len, ds->high_bitrate);
+        printf("%s\n",b->ptr);
         buf_free(b);
     }
     buf_free(ds->response);

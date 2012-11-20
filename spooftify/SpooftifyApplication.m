@@ -52,22 +52,10 @@
                     [nowPlayingViewController previousTrack];
                     break;
                 }
-                case UIEventSubtypeRemoteControlBeginSeekingBackward:
-                {
-                    break;
-                }
-                case UIEventSubtypeRemoteControlEndSeekingBackward:
-                {
-                    break;
-                }
-                case UIEventSubtypeRemoteControlBeginSeekingForward:
-                {
-                    break;
-                }
-                case UIEventSubtypeRemoteControlEndSeekingForward:
-                {
-                    break;
-                }
+                case UIEventSubtypeRemoteControlBeginSeekingBackward: break;
+                case UIEventSubtypeRemoteControlEndSeekingBackward: break;
+                case UIEventSubtypeRemoteControlBeginSeekingForward: break;
+                case UIEventSubtypeRemoteControlEndSeekingForward: break;
                 default: break;
             }
         }
