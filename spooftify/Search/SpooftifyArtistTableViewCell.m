@@ -14,19 +14,28 @@
 
 @synthesize artist;
 
+#pragma mark UITableViewCell
+
+// Initialise
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
+    // Set the accessory to a disclosure indicator
     [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return self;
 }
 
+#pragma mark SpooftifyArtistTableViewCell
+
+// Override setArtist
 -(void) setArtist:(SpooftifyArtist*)_artist
 {
+    // Assign the new artist to the old artist
     artist = _artist;
     
+    // Change the cells UI to reflect the artist
     [[self textLabel] setText:[artist name]];
     [[self imageView] setImage:[[Spooftify sharedSpooftify] thumbnailWithId:[artist portraitId]]];
 }

@@ -14,29 +14,41 @@
 @synthesize textField;
 @synthesize delegate;
 
+#pragma mark UITableViewCell
+
+// Initialise
 -(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
+    // Create the cell's text field
     textField = [[UITextField alloc] initWithFrame:CGRectMake(20.0,0.0,[self frame].size.width-40.0,20.0)];
     [textField setCenter:CGPointMake([self frame].size.width/2.0,[self frame].size.height/2.0)];
     [textField setReturnKeyType:UIReturnKeyDone];
+    // Make the text field's delegate ourself
     [textField setDelegate:self];
-    [self addSubview:textField];
+    [[self contentView] addSubview:textField];
     
     return self;
 }
 
+#pragma mark UITextFieldDelegate
+
+// Fired when the return key is hit on the keyboard
 -(BOOL) textFieldShouldReturn:(UITextField*)_textField
 {
     if(delegate != nil)
+        // Tell the delegate that we are ending the editing
         [delegate textFieldTableViewCellDidEndEditing:self];
+    // Return no, because we don't need multiple lines
     return NO;
 }
 
+// Fired when the user begins to edit the text field
 -(void) textFieldDidBeginEditing:(UITextField*)textField
 {
-    if(delegate != nil)
+    if(delegate != nil && [delegate respondsToSelector:@selector(textFieldTableViewCellDidBeginEditing:)])
+        // Tell the delegate that we are beginning to edit
         [delegate textFieldTableViewCellDidBeginEditing:self];
 }
 

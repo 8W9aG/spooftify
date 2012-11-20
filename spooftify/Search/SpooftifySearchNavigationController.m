@@ -12,16 +12,24 @@
 
 @implementation SpooftifySearchNavigationController
 
+#pragma mark UINavigationController
+
+// Initialise
 -(id) init
 {
     self = [super init];
     
-    [self setTitle:@"Search"];
+    // Set the navigation bars title
+    [self setTitle:NSLocalizedString(@"SearchKey",@"Title of Search Navigation Bar")];
     
+    // Create the search table view controller and add it to this navigation controller
     SpooftifySearchTableViewController* searchTableViewController = [[SpooftifySearchTableViewController alloc] init];
     [self setViewControllers:[NSArray arrayWithObject:searchTableViewController]];
+    
+    // Set the tab bar to be the generic search
     [self setTabBarItem:[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:0]];
     
+    // Set the style to black in accordance with the rest of the app
     [[self navigationBar] setBarStyle:UIBarStyleBlack];
     
     return self;

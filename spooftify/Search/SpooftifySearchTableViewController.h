@@ -9,8 +9,10 @@
  */
 #import <UIKit/UIKit.h>
 #import "SpooftifySongsTableViewCell.h"
+#import "SpooftifyTableViewController.h"
+#import "Spooftify.h"
 
-@interface SpooftifySearchTableViewController : UITableViewController <UISearchBarDelegate,UITabBarDelegate,SpooftifySongsTableViewCellDelegate>
+@interface SpooftifySearchTableViewController : SpooftifyTableViewController <UISearchBarDelegate,UITabBarDelegate,SpooftifySongsTableViewCellDelegate,SpooftifySearchDelegate>
 {
     UISearchBar* searchBar;
     UITabBar* searchTabBar;

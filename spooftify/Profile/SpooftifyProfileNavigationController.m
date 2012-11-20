@@ -12,16 +12,24 @@
 
 @implementation SpooftifyProfileNavigationController
 
+#pragma mark UINavigationController
+
+// Initialise
 -(id) init
 {
     self = [super init];
     
-    [self setTitle:@"Profile"];
+    // Set the title
+    [self setTitle:NSLocalizedString(@"ProfileKey",@"Title of Profile Navigation Bar")];
     
+    // Create the profile table view controller and add it to the navigation controller
     SpooftifyProfileTableViewController* profileTableViewController = [[SpooftifyProfileTableViewController alloc] init];
     [self setViewControllers:[NSArray arrayWithObject:profileTableViewController]];
-    [self setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"profileTab"] tag:0]];
     
+    // Set the navigation controllers tab bar item
+    [self setTabBarItem:[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"ProfileKey",@"Title of Profile Tab Bar item") image:[UIImage imageNamed:@"profileTab"] tag:0]];
+    
+    // Set the navigation bar to black style
     [[self navigationBar] setBarStyle:UIBarStyleBlack];
     
     return self;

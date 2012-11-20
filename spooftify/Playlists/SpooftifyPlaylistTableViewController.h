@@ -9,8 +9,9 @@
  */
 #import <UIKit/UIKit.h>
 #import "Spooftify.h"
+#import "SpooftifyTableViewController.h"
 
-@interface SpooftifyPlaylistTableViewController : UITableViewController
+@interface SpooftifyPlaylistTableViewController : SpooftifyTableViewController <SpooftifyPlaylistsDelegate>
 {
     NSMutableArray* playlists;
     struct playlist* playlist;

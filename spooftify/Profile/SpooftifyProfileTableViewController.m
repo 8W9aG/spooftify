@@ -10,6 +10,11 @@
 #import "SpooftifyProfileTableViewController.h"
 #import "SpooftifyNowPlayingNavigationController.h"
 
+#define kSpooftifyProfileTableViewControllerUsernameCellIndex 0
+#define kSpooftifyProfileTableViewControllerCountryCellIndex 1
+#define kSpooftifyProfileTableViewControllerTypeCellIndex 2
+#define kSpooftifyProfileTableViewControllerServerCellIndex 3
+
 @interface SpooftifyProfileTableViewController ()
 
 @property (nonatomic,strong) SpooftifyProfile* profile;
@@ -20,81 +25,102 @@
 
 @synthesize profile;
 
+#pragma mark UITableViewController
+
+// Initialise
 -(id) init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     
-    [self setTitle:@"Profile"];
+    // Set the title
+    [self setTitle:NSLocalizedString(@"ProfileKey",@"Title of Profile Navigation Bar")];
     
+    // Subscribe to login notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSucceeded) name:SpooftifyLoginSucceededNotification object:nil];
     
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    if([SpooftifyNowPlayingNavigationController isNowPlayingActive])
-    {
-        UIBarButtonItem* nowPlayingBtn = [[UIBarButtonItem alloc] initWithTitle:@"Now Playing" style:UIBarButtonItemStyleBordered target:self action:@selector(nowPlayingClicked:)];
-        [[self navigationItem] setRightBarButtonItem:nowPlayingBtn];
-    }
-}
+#pragma mark UITableViewDataSource
 
--(void) nowPlayingClicked:(UIBarButtonItem*)nowPlayingBtn
-{
-    [self presentViewController:[SpooftifyNowPlayingNavigationController sharedNowPlayingNavigationController] animated:YES completion:nil];
-}
-
+// Define the number of sections in the table view
 -(NSInteger) numberOfSectionsInTableView:(UITableView*)tableView
 {
     return 1;
 }
 
+// Define the number of rows in the table view
 -(NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // If we have no profile we have no data
     if(profile == nil)
         return 0;
+    
+    // Else we will have 4 items
     return 4;
 }
 
+// Return the cell for the row
 -(UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
+    // Find the queued cell
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:[[UITableViewCell class] description]];
+    
+    // If there is no queued cell
     if(cell == nil)
+        // Create one
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:[[UITableViewCell class] description]];
+    
+    // Fill in the cell depending on the row
     switch(indexPath.row)
     {
-        case 0:
+        case kSpooftifyProfileTableViewControllerUsernameCellIndex:
         {
-            [[cell textLabel] setText:@"Username:"];
+            [[cell textLabel] setText:NSLocalizedString(@"UsernameKey",@"Username cell title")];
             [[cell detailTextLabel] setText:[profile username]];
             break;
         }
-        case 1:
+        case kSpooftifyProfileTableViewControllerCountryCellIndex:
         {
-            [[cell textLabel] setText:@"Country:"];
+            [[cell textLabel] setText:NSLocalizedString(@"CountryKey",@"Country cell title")];
             [[cell detailTextLabel] setText:[profile country]];
             break;
         }
-        case 2:
+        case kSpooftifyProfileTableViewControllerTypeCellIndex:
         {
-            [[cell textLabel] setText:@"Type:"];
+            [[cell textLabel] setText:NSLocalizedString(@"TypeKey",@"Type cell title")];
             [[cell detailTextLabel] setText:[profile type]];
             break;
         }
-        case 3:
+        case kSpooftifyProfileTableViewControllerServerCellIndex:
         {
-            [[cell textLabel] setText:@"Server:"];
+            [[cell textLabel] setText:NSLocalizedString(@"ServerKey",@"Server cell title")];
             [[cell detailTextLabel] setText:[profile serverHost]];
             break;
         }
     }
+    
     return cell;
 }
 
+#pragma mark Spooftify Notifications
+
+// When the user logs in
 -(void) loginSucceeded
 {
+    // Set our profile to the users
     [self setProfile:[[Spooftify sharedSpooftify] profile]];
+}
+
+#pragma mark SpooftifyProfileTableViewController
+
+// Override setProfile
+-(void) setProfile:(SpooftifyProfile*)_profile
+{
+    profile = _profile;
+    
+    // If we have a new profile we need to reload the tables data
+    [[self tableView] reloadData];
 }
 
 @end

@@ -12,16 +12,24 @@
 
 @implementation SpooftifyPlaylistNavigationController
 
+#pragma mark UINavigationController
+
+// Initialise
 -(id) init
 {
     self = [super init];
     
-    [self setTitle:@"Playlists"];
+    // Set the navigation controllers default title
+    [self setTitle:NSLocalizedString(@"PlaylistsKey",@"Title of Playlists Tab Bar Item")];
     
+    // Create the playlist view controller and add it to the navigation controller
     SpooftifyPlaylistTableViewController* playlistTableViewController = [[SpooftifyPlaylistTableViewController alloc] init];
     [self setViewControllers:[NSArray arrayWithObject:playlistTableViewController]];
-    [self setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"Playlists" image:[UIImage imageNamed:@"playlistsTab"] tag:0]];
     
+    // Set the playlists tab bar item
+    [self setTabBarItem:[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"PlaylistsKey",@"Title of Playlists Tab Bar Item") image:[UIImage imageNamed:@"playlistsTab"] tag:0]];
+    
+    // We are using black styled navigation bars
     [[self navigationBar] setBarStyle:UIBarStyleBlack];
     
     return self;

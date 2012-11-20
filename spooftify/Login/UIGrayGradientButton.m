@@ -12,12 +12,19 @@
 
 @implementation UIGrayGradientButton
 
+#pragma mark UIButton
+
 -(id) initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     
+    // Set the corner radius to emulate the UITableViewCell's grouped style
+    // Currently 7.0 but used to be 10, it would be good if it was possible to get this without too much trouble
     [[self layer] setCornerRadius:7.0];
     
+    // Add the gradient layer that conforms to a gray gradient
+    // Similar to Facebooks login button
+    // Further abstraction possible by letting the user set this
     CAGradientLayer* gradientLayer = [CAGradientLayer layer];
     [gradientLayer setFrame:[[self layer] bounds]];
     [gradientLayer setColors:[NSArray arrayWithObjects:(id)[[UIColor colorWithWhite:236.0/255.0 alpha:1.0] CGColor],(id)[[UIColor colorWithRed:185.0/255.0 green:192.0/255.0 blue:201.0/255.0 alpha:1.0] CGColor], nil]];
@@ -25,15 +32,18 @@
     [gradientLayer setCornerRadius:[[self layer] cornerRadius]];
     [[self layer] addSublayer:gradientLayer];
     
+    // Set the buttons shadow
     [[self layer] setShadowColor:[UIColor darkGrayColor].CGColor];
     [[self layer] setShadowOpacity:1.0];
     [[self layer] setShadowOffset:CGSizeMake(0.0,2.0)];
     
+    // Set the buttons title label properties
     [[self titleLabel] setFont:[UIFont boldSystemFontOfSize:13.0]];
     [self setTitleColor:[UIColor colorWithWhite:90.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [self setTitleShadowColor:[UIColor colorWithWhite:213.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [[self titleLabel] setShadowOffset:CGSizeMake(0.0,1.0)];
     
+    // Make the button glow when touched
     [self setShowsTouchWhenHighlighted:YES];
     
     return self;

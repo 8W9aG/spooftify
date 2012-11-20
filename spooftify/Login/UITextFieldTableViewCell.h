@@ -12,8 +12,9 @@
 @class UITextFieldTableViewCell;
 
 @protocol UITextFieldTableViewCellDelegate <NSObject>
--(void) textFieldTableViewCellDidBeginEditing:(UITextFieldTableViewCell*)cell;
 -(void) textFieldTableViewCellDidEndEditing:(UITextFieldTableViewCell*)cell;
+@optional
+-(void) textFieldTableViewCellDidBeginEditing:(UITextFieldTableViewCell*)cell;
 @end
 
 @interface UITextFieldTableViewCell : UITableViewCell <UITextFieldDelegate>

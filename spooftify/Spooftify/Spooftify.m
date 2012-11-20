@@ -87,6 +87,8 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
 @synthesize profile;
 @synthesize useHighBitrate;
 @synthesize useCache;
+@synthesize playlistsDelegate;
+@synthesize searchDelegate;
 
 +(void) initialize
 {
@@ -203,7 +205,9 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
                 tmpList = tmpList->next;
             }
             while(tmpList != NULL);
-            [[NSNotificationCenter defaultCenter] postNotificationName:SpooftifyPlaylistsFoundNotification object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:playlistArray,@"Playlists",nil]];
+            
+            if(playlistsDelegate != nil)
+                [playlistsDelegate spooftify:self foundPlaylists:playlistArray];
         });
         despotify_free_playlist(rootlist);
     });
@@ -370,10 +374,10 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
             }
             while(track != NULL);
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:SpooftifySearchFoundNotification object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:artistArray,@"Artists",albumArray,@"Albums",trackArray,@"Tracks",nil]];
-            
-            despotify_free_search(result);
+            if(searchDelegate != nil)
+                [searchDelegate spooftify:self foundArtists:artistArray albums:albumArray tracks:trackArray];
         });
+        despotify_free_search(result);
     });
 }
 

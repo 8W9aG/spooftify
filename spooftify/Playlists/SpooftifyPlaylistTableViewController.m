@@ -10,99 +10,124 @@
 #import "SpooftifyPlaylistTableViewController.h"
 #import "SpooftifyPlaylistTableViewCell.h"
 #import "SpooftifySongsTableViewController.h"
-#import "SpooftifyNowPlayingNavigationController.h"
 
 @implementation SpooftifyPlaylistTableViewController
 
+#pragma mark UITableViewController
+
+// Initialise
 -(id) init
 {
     self = [super init];
     
-    [self setTitle:@"Playlists"];
+    // Set the table view controllers title
+    [self setTitle:NSLocalizedString(@"PlaylistsKey",@"Title of Playlists Tab Bar Item")];
     
+    // Create an array to hold the playlists
     playlists = [[NSMutableArray alloc] init];
     
+    // Sign up to the login notification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSucceeded) name:SpooftifyLoginSucceededNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(foundPlaylists:) name:SpooftifyPlaylistsFoundNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newTrack:) name:SpooftifyNewTrackNotification object:nil];
+    
+    // Assign us to the Spooftify playlists delegate
+    [[Spooftify sharedSpooftify] setPlaylistsDelegate:self];
     
     return self;
 }
 
+// When the view for the view controller loads
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
+    
+    // Create a refresh control to let the user refresh the table on command
     UIRefreshControl* refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self setRefreshControl:refreshControl];
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    if([SpooftifyNowPlayingNavigationController isNowPlayingActive])
-    {
-        UIBarButtonItem* nowPlayingBtn = [[UIBarButtonItem alloc] initWithTitle:@"Now Playing" style:UIBarButtonItemStyleBordered target:self action:@selector(nowPlayingClicked:)];
-        [[self navigationItem] setRightBarButtonItem:nowPlayingBtn];
-    }
-    [[self tableView] reloadData];
-}
+#pragma mark UITableViewDataSource
 
--(void) nowPlayingClicked:(UIBarButtonItem*)nowPlayingBtn
-{
-    [self presentViewController:[SpooftifyNowPlayingNavigationController sharedNowPlayingNavigationController] animated:YES completion:nil];
-}
-
+// Define the number of sections in the table view
 -(NSInteger) numberOfSectionsInTableView:(UITableView*)tableView
 {
     return 1;
 }
 
+// Define the number of rows per table view section
 -(NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // The number of rows is the number of playlists in our array
     return [playlists count];
 }
 
+// Format the table cell for the row
 -(UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    static NSString* cellIdentifier = @"SPOOFTIFY_PLAYLIST_CELL";
+    // Find a queued cell
+    SpooftifyPlaylistTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:[[SpooftifyPlaylistTableViewCell class] description]];
     
-    SpooftifyPlaylistTableViewCell* cell = (SpooftifyPlaylistTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    // If one is not found
     if(cell == nil)
-        cell = [[SpooftifyPlaylistTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        // Create a cell
+        cell = [[SpooftifyPlaylistTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[[SpooftifyPlaylistTableViewCell class] description]];
+    
+    // Set the cell's playlist
     [cell setPlaylist:[playlists objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
+#pragma mark UITableViewDelegate
+
+// Fired when the user selects a cell
 -(void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
+    // Create a Songs table view controller with the selected playlist
     SpooftifySongsTableViewController* songsTableViewController = [[SpooftifySongsTableViewController alloc] initWithPlaylist:[playlists objectAtIndex:indexPath.row]];
+    // Forward the user to this songs table view controller
     [[self navigationController] pushViewController:songsTableViewController animated:YES];
 }
 
+#pragma mark UIRefreshControl Control Event
+
+// When the user refreshes
 -(void) refresh
 {
-    NSLog(@"%s",__PRETTY_FUNCTION__);
-    if(![[Spooftify sharedSpooftify] playlists])
-        [[self refreshControl] endRefreshing];
+    // Reload the playlists
+    [[Spooftify sharedSpooftify] playlists];
 }
 
+#pragma mark Spooftify Notifications
+
+// If the user logs in
 -(void) loginSucceeded
 {
+    // Begin the refreshing animation
     [[self refreshControl] beginRefreshing];
+    
+    // The code below should be done by the code above logically... but beginRefreshing just starts the activity indicator animation... that's all
+    // Pull the table down to show the UIRefreshControl
     [[self tableView] setContentOffset:CGPointMake(0.0,-44.0) animated:YES];
+    // Simulate a refresh
     [self refresh];
 }
 
--(void) foundPlaylists:(NSNotification*)notification
-{
-    [[self refreshControl] endRefreshing];
-    [playlists removeAllObjects];
-    [playlists addObjectsFromArray:[[notification userInfo] objectForKey:@"Playlists"]];
-    [[self tableView] reloadData];
-}
+#pragma mark SpooftifyPlaylistsDelegate
 
--(void) newTrack:(NSNotification*)notification
+// When the playlists are found
+-(void) spooftify:(Spooftify*)spooftify foundPlaylists:(NSArray*)_playlists
 {
+    // Stop the refreshing process
+    [[self refreshControl] endRefreshing];
+    
+    // Remove the playlists in our array
+    [playlists removeAllObjects];
+    // Add them into our array
+    if(_playlists != nil)
+        [playlists addObjectsFromArray:_playlists];
+    
+    // Reload the table with our new playlists
     [[self tableView] reloadData];
 }
 

@@ -9,10 +9,11 @@
  */
 #import <UIKit/UIKit.h>
 #import "SpooftifyProfile.h"
+#import "SpooftifyTableViewController.h"
 
-@interface SpooftifyProfileTableViewController : UITableViewController
+@interface SpooftifyProfileTableViewController : SpooftifyTableViewController
 {
-    SpooftifyProfile* profile;
+    __strong SpooftifyProfile* profile;
 }
 
 @end

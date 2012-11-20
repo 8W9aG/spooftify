@@ -10,7 +10,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>0.1</string>
+			<string>0.1.1</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>

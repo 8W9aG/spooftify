@@ -17,10 +17,8 @@
 
 #define SpooftifyLoginSucceededNotification @"SpooftifyLoginSucceededNotification"
 #define SpooftifyLoginFailedNotification @"SpooftifyLoginFailedNotification"
-#define SpooftifyPlaylistsFoundNotification @"SpooftifyPlaylistsFoundNotification"
 #define SpooftifyTimeUpdatedNotification @"SpooftifyTimeUpdatedNotification"
 #define SpooftifyTrackEndedNotification @"SpooftifyTrackEndedNotification"
-#define SpooftifySearchFoundNotification @"SpooftifySearchFoundNotification"
 #define SpooftifyAlbumFoundNotification @"SpooftifyAlbumFoundNotification"
 #define SpooftifyArtistFoundNotification @"SpooftifyArtistFoundNotification"
 #define SpooftifyNewTrackNotification @"SpooftifyNewTrackNotification"
@@ -34,6 +32,15 @@ typedef enum SpooftifyPlayStateEnum {
 } SpooftifyPlayState;
 
 @class SpooftifyProfile;
+@class Spooftify;
+
+@protocol SpooftifyPlaylistsDelegate <NSObject>
+-(void) spooftify:(Spooftify*)spooftify foundPlaylists:(NSArray*)playlists;
+@end
+
+@protocol SpooftifySearchDelegate <NSObject>
+-(void) spooftify:(Spooftify*)spooftify foundArtists:(NSArray*)artists albums:(NSArray*)albums tracks:(NSArray*)tracks;
+@end
 
 @interface Spooftify : NSObject
 {
@@ -50,6 +57,9 @@ typedef enum SpooftifyPlayStateEnum {
     SpooftifyProfile* profile;
     
     dispatch_queue_t queue;
+    
+    __weak id <SpooftifyPlaylistsDelegate> playlistsDelegate;
+    __weak id <SpooftifySearchDelegate> searchDelegate;
 }
 
 @property (nonatomic,readonly) BOOL loggedIn;
@@ -58,10 +68,13 @@ typedef enum SpooftifyPlayStateEnum {
 @property (nonatomic,readonly) SpooftifyProfile* profile;
 @property (nonatomic,assign) BOOL useHighBitrate;
 @property (nonatomic,assign) BOOL useCache;
+@property (nonatomic,weak) id <SpooftifyPlaylistsDelegate> playlistsDelegate;
+@property (nonatomic,weak) id <SpooftifySearchDelegate> searchDelegate;
 
 +(Spooftify*) sharedSpooftify;
 
 -(void) loginWithUsername:(NSString*)username password:(NSString*)password;
+
 -(BOOL) playlists;
 
 -(void) startPlay:(SpooftifyTrack*)track;

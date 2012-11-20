@@ -15,19 +15,28 @@
 
 @synthesize album;
 
+#pragma mark UITableViewCell
+
+// Initialise
 -(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
+    // Set the accessory type to disclosure
     [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return self;
 }
 
+#pragma mark SpooftifyAlbumTableViewCell
+
+// Override setAlbum
 -(void) setAlbum:(SpooftifyAlbum*)_album
 {
+    // Assign our album to this new album
     album = _album;
     
+    // Change the cells UI to reflect the album
     [[self textLabel] setText:[album name]];
     [[self detailTextLabel] setText:[NSString stringWithFormat:@"by %@",[album artistName]]];
     [[self imageView] setImage:[[Spooftify sharedSpooftify] thumbnailWithId:[album coverId]]];
