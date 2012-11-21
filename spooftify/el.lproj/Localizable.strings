@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "Singles";
 "AppearsOnKey" = "εμφανίζεται στην";
+
+// Now Playing strings
+"HideKey" = "κρύβω";

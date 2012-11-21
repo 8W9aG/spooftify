@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "Individual";
 "AppearsOnKey" = "apareix a";
+
+// Now Playing strings
+"HideKey" = "Amaga";

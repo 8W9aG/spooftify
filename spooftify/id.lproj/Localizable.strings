@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "Jomblo";
 "AppearsOnKey" = "muncul Pada";
+
+// Now Playing strings
+"HideKey" = "menyembunyikan";

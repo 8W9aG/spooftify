@@ -26,106 +26,116 @@ static NSMutableArray* artistPool = nil;
 @synthesize albums;
 @synthesize hasBrowseInformation;
 
+#pragma mark NSObject
+
+// When SpooftifyArtist is first used
 +(void) initialize
 {
+    // Check we have the right class
     if(self == [SpooftifyArtist class])
     {
+        // Initialise the pool of artists
         artistPool = [[NSMutableArray alloc] init];
+        
+        // Sign up to receive application memory warnings
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
 }
 
-+(id) artistWithId:(NSString*)artistId
-{
-    for(SpooftifyArtist* artist in artistPool)
-    {
-        if([[artist artistId] isEqualToString:artistId])
-            return artist;
-    }
-    
-    char _artistId[[artistId length]+1];
-    memset(_artistId,'\0',[artistId length]+1);
-    strcpy(_artistId,[artistId UTF8String]);
-    
-    struct artist_browse* artistBrowse = despotify_get_artist([Spooftify sharedSpooftify].ds,_artistId);
-    if(artistBrowse != NULL)
-        return [SpooftifyArtist artistWithArtistBrowse:artistBrowse];
-    
-    return nil;
-}
+#pragma mark SpooftifyArtist
 
+// Create a SpooftifyArtist with a despotify artist
 +(id) artistWithArtist:(struct artist*)_artist
 {
+    // Create an NSString with the artist id
     NSString* artistId = [NSString stringWithUTF8String:(const char*)_artist->id];
     
+    // Loop through the artists in the pool
     for(SpooftifyArtist* artist in artistPool)
     {
+        // If an artist contains our id we'll use that
         if([[artist artistId] isEqualToString:artistId])
             return artist;
     }
     
+    // Else just create an artist and return it
     SpooftifyArtist* artist = [[SpooftifyArtist alloc] initWithArtist:_artist];
     return artist;
 }
 
+// Create a SpooftifyArtist with a despotify artist_browse
 +(id) artistWithArtistBrowse:(struct artist_browse*)_artist_browse
 {
-    if(_artist_browse == NULL)
-        return nil;
-    
+    // Create an NSString with the artist ID
     NSString* artistId = [NSString stringWithUTF8String:(const char*)_artist_browse->id];
     
+    // Loop through the artists in the pool
     for(SpooftifyArtist* artist in artistPool)
     {
+        // If we find one that contains our ID return it
         if([[artist artistId] isEqualToString:artistId])
         {
+            // Check if it has browse information
             if(![artist hasBrowseInformation])
+                // If not add it
                 [artist addBrowseInformation:_artist_browse];
+            
             return artist;
         }
     }
     
+    // Else just create an artist with the information
     SpooftifyArtist* artist = [[SpooftifyArtist alloc] initWithArtistBrowse:_artist_browse];
     return artist;
 }
 
+// Initialise with a despotify artist
 -(id) initWithArtist:(struct artist*)artist
 {
     self = [super init];
     
     _artist = *artist;
     
+    // Fill in the artist variables
     name = [[NSString alloc] initWithUTF8String:_artist.name];
     artistId = [[NSString alloc] initWithUTF8String:(const char*)_artist.id];
     portraitId = [[NSString alloc] initWithUTF8String:_artist.portrait_id];
     albums = [[NSMutableArray alloc] init];
     
+    // Add our artist to the pool
     [artistPool addObject:self];
     
     return self;
 }
 
+// Initialise with a despotify artist_browse
 -(id) initWithArtistBrowse:(struct artist_browse*)artistBrowse
 {
     self = [super init];
     
     _artist_browse = *artistBrowse;
     
+    // Fill in the artist variables
     name = [[NSString alloc] initWithUTF8String:_artist_browse.name];
     artistId = [[NSString alloc] initWithUTF8String:(const char*)_artist_browse.id];
     portraitId = [[NSString alloc] initWithUTF8String:_artist_browse.portrait_id];
     albums = [[NSMutableArray alloc] init];
     
+    // Add the browse information
     [self addBrowseInformation:artistBrowse];
     
+    // Add this artist to the pool
     [artistPool addObject:self];
     
     return self;
 }
 
+// Add browse information to this artist
 -(void) addBrowseInformation:(struct artist_browse*)artist_browse
 {
     _artist_browse = *artist_browse;
     
+    // Loop through the albums and add them to the artist
     struct album_browse* album_browse = _artist_browse.albums;
     while(album_browse != NULL)
     {
@@ -136,6 +146,15 @@ static NSMutableArray* artistPool = nil;
     }
     
     hasBrowseInformation = YES;
+}
+
+#pragma mark UIApplication Notification
+
+// If the app is running low on memory
++(void) didReceiveMemoryWarning
+{
+    // Drain the pool
+    [artistPool removeAllObjects];
 }
 
 @end

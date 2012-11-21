@@ -12,14 +12,22 @@
 
 @implementation SpooftifyApplication
 
+#pragma mark UIApplication
+
+// Override sendEvent
 -(void) sendEvent:(UIEvent*)event
 {
+    // If the event is a remote control event, capture it
     if([event type] == UIEventTypeRemoteControl)
     {
+        // Find the now playing controller
         SpooftifyNowPlayingNavigationController* nowPlayingNavigationController = [SpooftifyNowPlayingNavigationController sharedNowPlayingNavigationController];
         SpooftifyNowPlayingViewController* nowPlayingViewController = [nowPlayingNavigationController nowPlayingViewController];
+        
+        // If it exists
         if(nowPlayingViewController != nil)
         {
+            // Send the appropriate command
             switch([event subtype])
             {
                 case UIEventSubtypeRemoteControlPlay:
@@ -59,9 +67,9 @@
                 default: break;
             }
         }
-        return;
     }
-    [super sendEvent:event];
+    else
+        [super sendEvent:event];
 }
 
 @end

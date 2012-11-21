@@ -17,10 +17,14 @@
 @synthesize expiry;
 @synthesize serverHost;
 
+#pragma mark SpooftifyProfile
+
+// Initialise with despotify user_info
 -(id) initWithUserInfo:(struct user_info*)userInfo
 {
     self = [super init];
     
+    // Fill in the variables from the user_info
     username = [[NSString alloc] initWithUTF8String:userInfo->username];
     country = [[NSString alloc] initWithUTF8String:userInfo->country];
     type = [[NSString alloc] initWithUTF8String:userInfo->type];

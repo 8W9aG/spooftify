@@ -33,7 +33,6 @@
 @property (nonatomic,readonly) int year;
 @property (nonatomic,readonly) BOOL hasBrowseInformation;
 
-+(id) albumWithId:(NSString*)albumId;
 +(id) albumWithAlbum:(struct album*)album;
 +(id) albumWithAlbumBrowse:(struct album_browse*)album_browse;
 -(void) addBrowseInformation:(struct album_browse*)album_browse;

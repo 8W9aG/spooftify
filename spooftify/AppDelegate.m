@@ -35,13 +35,17 @@
         [userDefaults registerDefaults:defaultsDict];
     }
     
+    // Create the apps window
     [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
     
+    // Create the tab bar controller and make it our root view controller
     SpooftifyTabBarController* tabBarController = [[SpooftifyTabBarController alloc] init];
     [[self window] setRootViewController:tabBarController];
     
+    // Make the window visible
     [[self window] makeKeyAndVisible];
     
+    // Present the login view controller immediately
     SpooftifyLoginViewController* loginViewController = [[SpooftifyLoginViewController alloc] init];
     [tabBarController presentViewController:loginViewController animated:NO completion:nil];
     

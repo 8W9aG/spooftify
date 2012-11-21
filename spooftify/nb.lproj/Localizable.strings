@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "Pensjonister";
 "AppearsOnKey" = "vises på";
+
+// Now Playing strings
+"HideKey" = "Skjul";

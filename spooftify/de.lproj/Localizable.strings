@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "Einzel";
 "AppearsOnKey" = "Enthalten auf";
+
+// Now Playing strings
+"HideKey" = "verbergen";

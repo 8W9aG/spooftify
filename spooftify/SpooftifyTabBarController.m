@@ -17,11 +17,16 @@
 
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
+    
+    // Create the main navigation controllers and add them
     SpooftifyPlaylistNavigationController* playlistNavigationController = [[SpooftifyPlaylistNavigationController alloc] init];
     SpooftifySearchNavigationController* searchNavigationController = [[SpooftifySearchNavigationController alloc] init];
     SpooftifyProfileNavigationController* profileNavigationController = [[SpooftifyProfileNavigationController alloc] init];
     SpooftifySettingsNavigationController* settingsNavigationController = [[SpooftifySettingsNavigationController alloc] init];
     [self setViewControllers:[NSArray arrayWithObjects:playlistNavigationController,searchNavigationController,profileNavigationController,settingsNavigationController,nil] animated:NO];
+    
+    // Make the selected view controller the playlist navigation controller
     [self setSelectedViewController:playlistNavigationController];
 }
 

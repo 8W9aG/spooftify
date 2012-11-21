@@ -11,39 +11,44 @@
 #import "SpooftifyNowPlayingViewController.h"
 
 static SpooftifyNowPlayingNavigationController* nowPlayingNavigationController = nil;
-static BOOL isActive = NO;
 
 @implementation SpooftifyNowPlayingNavigationController
 
 @synthesize nowPlayingViewController;
 
+#pragma mark SpooftifyNowPlayingNavigationController
+
+// Find the shared navigation controller
 +(id) sharedNowPlayingNavigationController
 {
+    // If one doesn't exist
     if(nowPlayingNavigationController == nil)
+        // Create it
         nowPlayingNavigationController = [[SpooftifyNowPlayingNavigationController alloc] init];
     return nowPlayingNavigationController;
 }
 
+// Return whether there is currently a now playing navigation controller active
 +(BOOL) isNowPlayingActive
 {
-    return isActive;
+    return (nowPlayingNavigationController != nil);
 }
 
+#pragma mark UIViewController
+
+// Initialise
 -(id) init
 {
     self = [super init];
     
+    // Create now playing view controller
     nowPlayingViewController = [[SpooftifyNowPlayingViewController alloc] init];
-    isActive = YES;
+    [self setViewControllers:[NSArray arrayWithObject:nowPlayingViewController]];
     
+    //Set the navigation bar style to black in accordance with the rest of the app
     [[self navigationBar] setBarStyle:UIBarStyleBlack];
     
     return self;
-}
-
--(void) viewDidLoad
-{
-    [self setViewControllers:[NSArray arrayWithObject:nowPlayingViewController]];
 }
 
 @end

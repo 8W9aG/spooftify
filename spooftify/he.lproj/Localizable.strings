@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "רווקים";
 "AppearsOnKey" = "מופיע על";
+
+// Now Playing strings
+"HideKey" = "להסתיר";

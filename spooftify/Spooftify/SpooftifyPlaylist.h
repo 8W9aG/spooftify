@@ -28,7 +28,6 @@
 @property (nonatomic,readonly) int numberOfTracks;
 @property (nonatomic,readonly) NSArray* tracks;
 
-+(id) playlistWithId:(NSString*)playlistId;
 +(id) playlistWithPlaylist:(struct playlist*)playlist;
 
 @end

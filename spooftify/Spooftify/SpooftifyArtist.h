@@ -29,7 +29,6 @@
 @property (nonatomic,readonly) NSMutableArray* albums;
 @property (nonatomic,readonly) BOOL hasBrowseInformation;
 
-+(id) artistWithId:(NSString*)artistId;
 +(id) artistWithArtist:(struct artist*)artist;
 +(id) artistWithArtistBrowse:(struct artist_browse*)artist_browse;
 -(void) addBrowseInformation:(struct artist_browse*)artist_browse;

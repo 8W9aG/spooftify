@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "Singles";
 "AppearsOnKey" = "xuất hiện trên";
+
+// Now Playing strings
+"HideKey" = "che";

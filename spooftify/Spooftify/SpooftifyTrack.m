@@ -28,56 +28,67 @@ static NSMutableArray* trackPool = nil;
 @synthesize track;
 @synthesize trackPtr;
 
+#pragma mark NSObject
+
+// When SpooftifyTrack is first used
 +(void) initialize
 {
+    // Check if we are executing in the right class
     if(self == [SpooftifyTrack class])
     {
+        // Create the track pool
         trackPool = [[NSMutableArray alloc] init];
+        
+        // Sign up to receive application memory warnings
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
 }
 
-+(id) trackWithId:(NSString*)trackId
+// When we are deallocated
+-(void) dealloc
 {
-    for(SpooftifyTrack* track in trackPool)
-    {
-        if([[track trackId] isEqualToString:trackId])
-            return track;
-    }
-    
-    char _trackId[[trackId length]+1];
-    memset(_trackId,'\0',[trackId length]+1);
-    strcpy(_trackId,[trackId UTF8String]);
-    
-    struct track* track = despotify_get_track([Spooftify sharedSpooftify].ds,_trackId);
-    if(track != NULL)
-        return [SpooftifyTrack trackWithTrack:track];
-    
-    return nil;
+    // Free the memory we allocated for the despotify track
+    free(trackPtr);
+    trackPtr = NULL;
 }
 
+#pragma mark SpooftifyTrack
+
+// Create a track from a despotify track
 +(id) trackWithTrack:(struct track*)_track
 {
+    // Create a track string from the track ID
     NSString* trackId = [NSString stringWithUTF8String:(const char*)_track->track_id];
     
+    // Loop through the tracks in the pool
     for(SpooftifyTrack* track in trackPool)
     {
+        // If we find our track return it
         if([[track trackId] isEqualToString:trackId])
             return track;
     }
     
+    // Create a track
     SpooftifyTrack* track = [[SpooftifyTrack alloc] initWithTrack:_track];
     return track;
 }
 
+// Initialise with a despotify track
 -(id) initWithTrack:(struct track*)_track
 {
     self = [super init];
     
     track = *_track;
+    
+    // Remove the track.next value just in case despotify tries to play the next track
+    // We want to control this action ourselves
     track.next = NULL;
+    
+    // Allocate some memory and copy the despotify track to it
     trackPtr = (struct track*)malloc(sizeof(struct track));
     memcpy(trackPtr,&track,sizeof(struct track));
     
+    // Fill in our variables
     trackId = [[NSString alloc] initWithUTF8String:(const char*)track.track_id];
     albumId = [[NSString alloc] initWithUTF8String:(const char*)track.album_id];
     coverId = [[NSString alloc] initWithUTF8String:(const char*)track.cover_id];
@@ -87,15 +98,19 @@ static NSMutableArray* trackPool = nil;
     album = [[NSString alloc] initWithUTF8String:track.album];
     milliseconds = track.length;
     
+    // Add the track to the pool
     [trackPool addObject:self];
     
     return self;
 }
 
--(void) dealloc
+#pragma mark UIApplication Notification
+
+// If the app is running low on memory
++(void) didReceiveMemoryWarning
 {
-    free(trackPtr);
-    trackPtr = NULL;
+    // Drain the pool
+    [trackPool removeAllObjects];
 }
 
 @end

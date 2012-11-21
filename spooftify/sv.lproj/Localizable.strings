@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "singlar";
 "AppearsOnKey" = "visas på";
+
+// Now Playing strings
+"HideKey" = "Göm";

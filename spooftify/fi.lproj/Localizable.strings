@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "kaksinpeli";
 "AppearsOnKey" = "näkyy";
+
+// Now Playing strings
+"HideKey" = "piilottaa";

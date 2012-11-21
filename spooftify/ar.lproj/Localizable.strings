@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "الفردي";
 "AppearsOnKey" = "يظهر على";
+
+// Now Playing strings
+"HideKey" = "إخفاء";

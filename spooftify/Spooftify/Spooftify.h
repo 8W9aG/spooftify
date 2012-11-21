@@ -18,7 +18,6 @@
 
 #define SpooftifyLoginSucceededNotification @"SpooftifyLoginSucceededNotification"
 #define SpooftifyLoginFailedNotification @"SpooftifyLoginFailedNotification"
-#define SpooftifyTimeUpdatedNotification @"SpooftifyTimeUpdatedNotification"
 #define SpooftifyTrackEndedNotification @"SpooftifyTrackEndedNotification"
 #define SpooftifyNewTrackNotification @"SpooftifyNewTrackNotification"
 
@@ -53,46 +52,45 @@ typedef enum SpooftifyPlayStateEnum {
 -(void) spooftify:(Spooftify*)spooftify foundArtist:(SpooftifyArtist*)artist;
 @end
 
+@protocol SpooftifyNowPlayingDelegate <NSObject>
+-(void) spooftify:(Spooftify*)spooftify timeDidUpdate:(NSTimeInterval)newTime;
+@end
+
 @interface Spooftify : NSObject
 {
     struct despotify_session* ds;
-    BOOL loggedIn;
-    SpooftifyPlayState playState;
-    TPCircularBuffer buffer;
-    NSThread* despotifyThread;
-    NSLock* stateLock;
-    
-    AudioComponentInstance audioUnit;
-    double timeSeconds;
-    
-    SpooftifyProfile* profile;
-    
     dispatch_queue_t queue;
     
     __weak id <SpooftifyPlaylistsDelegate> playlistsDelegate;
     __weak id <SpooftifySearchDelegate> searchDelegate;
+    __weak id <SpooftifyNowPlayingDelegate> nowPlayingDelegate;
+    
+    BOOL loggedIn;
+    SpooftifyPlayState playState;
+    double timeSeconds;
+    
+    TPCircularBuffer buffer;
+    NSThread* despotifyThread;
+    AudioComponentInstance audioUnit;
+    
+    SpooftifyProfile* profile;
 }
 
-@property (nonatomic,readonly) BOOL loggedIn;
-@property (nonatomic,readonly) SpooftifyPlayState playState;
-@property (nonatomic,readonly) struct despotify_session* ds;
-@property (nonatomic,readonly) SpooftifyProfile* profile;
-@property (nonatomic,assign) BOOL useHighBitrate;
-@property (nonatomic,assign) BOOL useCache;
 @property (nonatomic,weak) id <SpooftifyPlaylistsDelegate> playlistsDelegate;
 @property (nonatomic,weak) id <SpooftifySearchDelegate> searchDelegate;
+@property (nonatomic,weak) id <SpooftifyNowPlayingDelegate> nowPlayingDelegate;
+@property (nonatomic,readonly) BOOL loggedIn;
+@property (nonatomic,assign) SpooftifyPlayState playState;
+@property (nonatomic,readonly) SpooftifyProfile* profile;
+
+@property (nonatomic,assign) BOOL useHighBitrate;
 
 +(Spooftify*) sharedSpooftify;
 
 -(void) loginWithUsername:(NSString*)username password:(NSString*)password;
-
--(BOOL) playlists;
+-(void) playlists;
 
 -(void) startPlay:(SpooftifyTrack*)track;
-
--(void) play;
--(void) pause;
--(void) stop;
 
 -(void) findImageWithId:(NSString*)coverId delegate:(id<SpooftifyImageDelegate>)delegate;
 -(void) findThumbnailWithId:(NSString*)coverId delegate:(id<SpooftifyImageDelegate>)delegate;

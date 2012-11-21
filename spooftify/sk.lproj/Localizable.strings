@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "singles";
 "AppearsOnKey" = "objaví sa na";
+
+// Now Playing strings
+"HideKey" = "schovať";

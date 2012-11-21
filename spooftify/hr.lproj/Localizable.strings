@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "singlovi";
 "AppearsOnKey" = "Pojavljuje se na";
+
+// Now Playing strings
+"HideKey" = "sakriti";

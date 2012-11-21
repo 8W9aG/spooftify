@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "Singles";
 "AppearsOnKey" = "jelenik meg";
+
+// Now Playing strings
+"HideKey" = "elrejt";

@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "tekler";
 "AppearsOnKey" = "Açık Görünüyor";
+
+// Now Playing strings
+"HideKey" = "gizlemek";

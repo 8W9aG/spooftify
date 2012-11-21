@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "ฮันนีมูน";
 "AppearsOnKey" = "จะปรากฏขึ้นบน";
+
+// Now Playing strings
+"HideKey" = "ปิดบัง";

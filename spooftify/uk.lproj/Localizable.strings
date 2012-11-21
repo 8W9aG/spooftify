@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "Знайомства";
 "AppearsOnKey" = "з'являється на";
+
+// Now Playing strings
+"HideKey" = "приховувати";

@@ -35,7 +35,6 @@
 @property (nonatomic,readonly) struct track* trackPtr;
 @property (nonatomic,readonly) int milliseconds;
 
-+(id) trackWithId:(NSString*)trackId;
 +(id) trackWithTrack:(struct track*)track;
 
 @end

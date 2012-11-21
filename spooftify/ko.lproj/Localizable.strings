@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "싱글";
 "AppearsOnKey" = "에 나타납니다";
+
+// Now Playing strings
+"HideKey" = "숨기기";

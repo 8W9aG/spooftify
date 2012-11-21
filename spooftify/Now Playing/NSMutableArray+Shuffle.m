@@ -11,11 +11,15 @@
 
 @implementation NSMutableArray (Shuffle)
 
+// Shuffle the mutable array
 -(void) shuffle
 {
+    // Loop through every item
     for(int i=0;i<[self count];i++)
     {
+        // Generate a random index in the pool we have left
         int index = (arc4random()%([self count]-i))+i;
+        // Exchange the current object with that index
         [self exchangeObjectAtIndex:i withObjectAtIndex:index];
     }
 }

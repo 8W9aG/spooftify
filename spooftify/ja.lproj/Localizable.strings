@@ -43,3 +43,6 @@
 // Album strings
 "SinglesKey" = "シングルス";
 "AppearsOnKey" = "に表示されます";
+
+// Now Playing strings
+"HideKey" = "隠す";
