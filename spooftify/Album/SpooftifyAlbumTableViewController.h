@@ -10,10 +10,13 @@
 #import <UIKit/UIKit.h>
 #import "SpooftifyAlbum.h"
 #import "SpooftifySongsTableViewCell.h"
+#import "SpooftifyTableViewController.h"
+#import "Spooftify.h"
 
-@interface SpooftifyAlbumTableViewController : UITableViewController <SpooftifySongsTableViewCellDelegate>
+@interface SpooftifyAlbumTableViewController : SpooftifyTableViewController  <SpooftifySongsTableViewCellDelegate,SpooftifyAlbumDelegate,SpooftifyImageDelegate>
 {
     __strong SpooftifyAlbum* album;
+    
     UILabel* albumLbl;
     UIImageView* albumImageView;
 }

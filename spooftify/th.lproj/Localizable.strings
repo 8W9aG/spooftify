@@ -30,3 +30,16 @@
 "CountryKey" = "ประเทศ";
 "TypeKey" = "ชนิด";
 "ServerKey" = "เซิร์ฟเวอร์";
+
+// Settings strings
+"SettingsKey" = "การตั้งค่า";
+"LogOutKey" = "ออกจากระบบ";
+"HighBitrateKey" = "บิตเรตสูง";
+"VersionKey" = "รุ่น";
+
+// Songs strings
+"ShufflePlayKey" = "การเล่นแบบสุ่ม";
+
+// Album strings
+"SinglesKey" = "ฮันนีมูน";
+"AppearsOnKey" = "จะปรากฏขึ้นบน";

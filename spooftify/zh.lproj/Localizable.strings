@@ -30,3 +30,16 @@
 "CountryKey" = "国家";
 "TypeKey" = "类型";
 "ServerKey" = "服务器";
+
+// Settings strings
+"SettingsKey" = "设置";
+"LogOutKey" = "注销";
+"HighBitrateKey" = "高比特率";
+"VersionKey" = "版本";
+
+// Songs strings
+"ShufflePlayKey" = "随机播放";
+
+// Album strings
+"SinglesKey" = "单打";
+"AppearsOnKey" = "上会出现";

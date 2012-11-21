@@ -30,3 +30,16 @@
 "CountryKey" = "Quốc gia";
 "TypeKey" = "loại";
 "ServerKey" = "máy chủ";
+
+// Settings strings
+"SettingsKey" = "Cài đặt";
+"LogOutKey" = "Log Out";
+"HighBitrateKey" = "cao Bitrate";
+"VersionKey" = "Phiên bản";
+
+// Songs strings
+"ShufflePlayKey" = "Phát ngẫu nhiên";
+
+// Album strings
+"SinglesKey" = "Singles";
+"AppearsOnKey" = "xuất hiện trên";

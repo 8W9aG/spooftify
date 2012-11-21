@@ -30,3 +30,16 @@
 "CountryKey" = "krajiny";
 "TypeKey" = "Typ";
 "ServerKey" = "server";
+
+// Settings strings
+"SettingsKey" = "Nastavenie";
+"LogOutKey" = "Odhlásiť sa";
+"HighBitrateKey" = "High Bitrate";
+"VersionKey" = "verzia";
+
+// Songs strings
+"ShufflePlayKey" = "Shuffle Play";
+
+// Album strings
+"SinglesKey" = "singles";
+"AppearsOnKey" = "objaví sa na";

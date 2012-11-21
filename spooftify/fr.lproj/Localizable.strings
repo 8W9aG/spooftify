@@ -30,3 +30,16 @@
 "CountryKey" = "pays";
 "TypeKey" = "type";
 "ServerKey" = "serveur";
+
+// Settings strings
+"SettingsKey" = "réglages";
+"LogOutKey" = "Déconnexion";
+"HighBitrateKey" = "haut Débit";
+"VersionKey" = "version";
+
+// Songs strings
+"ShufflePlayKey" = "Lecture aléatoire";
+
+// Album strings
+"SinglesKey" = "simple";
+"AppearsOnKey" = "apparaît sur";

@@ -30,3 +30,16 @@
 "CountryKey" = "χώρα";
 "TypeKey" = "τύπος";
 "ServerKey" = "διακομιστή";
+
+// Settings strings
+"SettingsKey" = "Ρυθμίσεις";
+"LogOutKey" = "Έξοδος";
+"HighBitrateKey" = "High Bitrate";
+"VersionKey" = "εκδοχή";
+
+// Songs strings
+"ShufflePlayKey" = "Λειτουργία Shuffle";
+
+// Album strings
+"SinglesKey" = "Singles";
+"AppearsOnKey" = "εμφανίζεται στην";

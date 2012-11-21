@@ -30,3 +30,16 @@
 "CountryKey" = "بلد";
 "TypeKey" = "نوع";
 "ServerKey" = "خادم";
+
+// Settings strings
+"SettingsKey" = "إعدادات";
+"LogOutKey" = "تسجيل الخروج";
+"HighBitrateKey" = "ارتفاع معدل البت";
+"VersionKey" = "نص";
+
+// Songs strings
+"ShufflePlayKey" = "خلط ورق اللعب اللعب";
+
+// Album strings
+"SinglesKey" = "الفردي";
+"AppearsOnKey" = "يظهر على";

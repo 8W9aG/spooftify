@@ -30,3 +30,16 @@
 "CountryKey" = "země";
 "TypeKey" = "typ";
 "ServerKey" = "Server";
+
+// Settings strings
+"SettingsKey" = "Nastavení";
+"LogOutKey" = "Odhlásit se";
+"HighBitrateKey" = "High Bitrate";
+"VersionKey" = "verze";
+
+// Songs strings
+"ShufflePlayKey" = "Shuffle Play";
+
+// Album strings
+"SinglesKey" = "Singles";
+"AppearsOnKey" = "objeví se na";

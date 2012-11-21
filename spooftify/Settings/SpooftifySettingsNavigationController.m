@@ -12,16 +12,24 @@
 
 @implementation SpooftifySettingsNavigationController
 
+#pragma mark UINavigationController
+
+// Initialise
 -(id) init
 {
     self = [super init];
     
-    [self setTitle:@"Settings"];
+    // Set the title to Settings
+    [self setTitle:NSLocalizedString(@"SettingsKey",@"Title of Settings Navigation Bar")];
     
+    // Create the settings table view controller and add it to the navigation stack
     SpooftifySettingsTableViewController* settingsTableViewController = [[SpooftifySettingsTableViewController alloc] init];
     [self setViewControllers:[NSArray arrayWithObject:settingsTableViewController]];
-    [self setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@"settingsTab"] tag:0]];
     
+    // Set the tab bar item for this flow
+    [self setTabBarItem:[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"SettingsKey",@"Title of Settings Tab Bar Item") image:[UIImage imageNamed:@"settingsTab"] tag:0]];
+    
+    // Set the navigation bar style to black in accordance with the apps theme
     [[self navigationBar] setBarStyle:UIBarStyleBlack];
     
     return self;

@@ -260,21 +260,16 @@
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:mediaPlayerInfo];
     
     [coverImageView setImage:[UIImage imageNamed:@"genericAlbum"]];
+    [[Spooftify sharedSpooftify] findImageWithId:[track coverId] delegate:self];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0ul);
     dispatch_async(queue,^{
+        
         [[Spooftify sharedSpooftify] pause];
         despotify_stop([Spooftify sharedSpooftify].ds);
         // If we do this too soon it just doesn't work
         sleep(1);
         [[Spooftify sharedSpooftify] startPlay:track];
-        UIImage* coverImage = [[Spooftify sharedSpooftify] imageWithId:[track coverId]];
-        dispatch_sync(dispatch_get_main_queue(),^{
-            [coverImageView setImage:coverImage];
-            MPMediaItemArtwork* artwork = [[MPMediaItemArtwork alloc] initWithImage:coverImage];
-            [mediaPlayerInfo setObject:artwork forKey:MPMediaItemPropertyArtwork];
-            [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:mediaPlayerInfo];
-        });
     });
 }
 
@@ -336,6 +331,20 @@
     [trackQueue addObject:_track];
     [trackQueue exchangeObjectAtIndex:currentIndex+1 withObjectAtIndex:[trackQueue count]-1];
     [forwardSkipButton setEnabled:([trackQueue count] == currentIndex+1) ? NO : YES];
+}
+
+#pragma mark SpooftifyImageDelegate
+
+-(void) spooftify:(Spooftify*)spooftify foundImage:(UIImage*)image forId:(NSString*)coverId
+{
+    if([[track coverId] isEqualToString:coverId])
+    {
+        [coverImageView setImage:image];
+        
+        MPMediaItemArtwork* artwork = [[MPMediaItemArtwork alloc] initWithImage:image];
+        [mediaPlayerInfo setObject:artwork forKey:MPMediaItemPropertyArtwork];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:mediaPlayerInfo];
+    }
 }
 
 @end

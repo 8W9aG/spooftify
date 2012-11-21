@@ -10,8 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "SpooftifyPlaylist.h"
 #import "SpooftifySongsTableViewCell.h"
+#import "SpooftifyTableViewController.h"
 
-@interface SpooftifySongsTableViewController : UITableViewController <SpooftifySongsTableViewCellDelegate>
+@interface SpooftifySongsTableViewController : SpooftifyTableViewController <SpooftifySongsTableViewCellDelegate>
 {
     SpooftifyPlaylist* playlist;
 }

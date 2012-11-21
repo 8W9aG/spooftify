@@ -30,3 +30,16 @@
 "CountryKey" = "land";
 "TypeKey" = "Type";
 "ServerKey" = "Server";
+
+// Settings strings
+"SettingsKey" = "Indstillinger";
+"LogOutKey" = "Log ud";
+"HighBitrateKey" = "High Bitrate";
+"VersionKey" = "Version";
+
+// Songs strings
+"ShufflePlayKey" = "shuffle-afspilning";
+
+// Album strings
+"SinglesKey" = "Singles";
+"AppearsOnKey" = "vises på";

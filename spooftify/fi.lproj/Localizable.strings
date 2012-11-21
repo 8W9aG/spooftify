@@ -30,3 +30,16 @@
 "CountryKey" = "maa";
 "TypeKey" = "tyyppi";
 "ServerKey" = "Server";
+
+// Settings strings
+"SettingsKey" = "Asetukset";
+"LogOutKey" = "Kirjaudu ulos";
+"HighBitrateKey" = "High Bitrate";
+"VersionKey" = "versio";
+
+// Songs strings
+"ShufflePlayKey" = "satunnaistoisto";
+
+// Album strings
+"SinglesKey" = "kaksinpeli";
+"AppearsOnKey" = "näkyy";

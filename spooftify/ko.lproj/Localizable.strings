@@ -30,3 +30,16 @@
 "CountryKey" = "국가";
 "TypeKey" = "유형";
 "ServerKey" = "서버";
+
+// Settings strings
+"SettingsKey" = "설정";
+"LogOutKey" = "로그 아웃";
+"HighBitrateKey" = "높은 비트 레이트";
+"VersionKey" = "버전";
+
+// Songs strings
+"ShufflePlayKey" = "셔플 재생";
+
+// Album strings
+"SinglesKey" = "싱글";
+"AppearsOnKey" = "에 나타납니다";

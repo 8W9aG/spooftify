@@ -10,25 +10,30 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "SpooftifyTrack.h"
+#import "Spooftify.h"
 
 @class SpooftifySongsTableViewCell;
 
 @protocol SpooftifySongsTableViewCellDelegate <NSObject>
--(void) spooftifySongsTableViewCellRequestAlbum:(SpooftifySongsTableViewCell*)cell;
 -(void) spooftifySongsTableViewCellRequestArtist:(SpooftifySongsTableViewCell*)cell;
 @optional
 -(void) spooftifySongsTableViewCellQueueSongForNextTrack:(SpooftifySongsTableViewCell*)cell;
+-(void) spooftifySongsTableViewCellRequestAlbum:(SpooftifySongsTableViewCell*)cell;
 @end
 
-@interface SpooftifySongsTableViewCell : UITableViewCell
+@interface SpooftifySongsTableViewCell : UITableViewCell <SpooftifyImageDelegate>
 {
     __strong SpooftifyTrack* track;
+    
     __weak id <SpooftifySongsTableViewCellDelegate> delegate;
     
     UIImageView* soundAccessoryImageView;
     UIView* frontView;
     UIButton* addToQueueButton;
     UIButton* albumButton;
+    
+    UIImage* albumImage;
+    NSTimer* albumImageTimer;
 }
 
 @property (nonatomic,strong) SpooftifyTrack* track;

@@ -273,7 +273,7 @@ struct album_browse* despotify_get_album(struct despotify_session* ds,
 struct track* despotify_get_tracks(struct despotify_session* ds, char* track_ids[], int num_tracks);
 struct track* despotify_get_track(struct despotify_session* ds, char* track_id);
 void* despotify_get_image(struct despotify_session* ds,
-                          char* image_id, int* len, bool only_cache);
+                          char* image_id, int* len, bool use_cache);
 
 void despotify_free_artist_browse(struct artist_browse* a);
 void despotify_free_album_browse(struct album_browse* a);

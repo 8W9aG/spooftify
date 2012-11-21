@@ -9,8 +9,10 @@
  */
 #import <UIKit/UIKit.h>
 #import "SpooftifyArtist.h"
+#import "SpooftifyTableViewController.h"
+#import "Spooftify.h"
 
-@interface SpooftifyArtistTableViewController : UITableViewController
+@interface SpooftifyArtistTableViewController : SpooftifyTableViewController <SpooftifyArtistDelegate>
 {
     __strong SpooftifyArtist* artist;
     

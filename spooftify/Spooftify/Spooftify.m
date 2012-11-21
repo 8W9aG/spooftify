@@ -280,10 +280,9 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
     }
 }
 
--(UIImage*) imageWithId:(NSString*)coverId
+-(void) findImageWithId:(NSString*)coverId delegate:(id<SpooftifyImageDelegate>)delegate
 {
-    __block UIImage* coverImage = [UIImage imageNamed:@"genericAlbum"];
-    dispatch_sync(queue,^{
+    dispatch_async(queue,^{
         int coverIdLen = [coverId length];
         char _coverId[coverIdLen+1];
         memset(_coverId,'\0',coverIdLen+1);
@@ -291,13 +290,52 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
         
         int len = 0;
         void* jpeg = despotify_get_image(ds,_coverId,&len,NO);
+        
+        UIImage* coverImage = [UIImage imageNamed:@"genericAlbum"];
         if(jpeg != NULL)
             coverImage = [UIImage imageWithData:[NSData dataWithBytes:jpeg length:len]];
+        dispatch_sync(dispatch_get_main_queue(),^{
+           if(delegate != nil)
+               [delegate spooftify:self foundImage:coverImage forId:coverId];
+        });
     });
-    return coverImage;
 }
 
--(UIImage*) thumbnailWithId:(NSString*)coverId
+-(void) findThumbnailWithId:(NSString*)coverId delegate:(id<SpooftifyImageDelegate>)delegate
+{
+    dispatch_async(queue,^{
+        int coverIdLen = [coverId length];
+        char _coverId[coverIdLen+1];
+        memset(_coverId,'\0',coverIdLen+1);
+        strcpy(_coverId,[coverId UTF8String]);
+        
+        int len = 0;
+        void* jpeg = despotify_get_image(ds,_coverId,&len,NO);
+        
+        UIImage* bigImage = [UIImage imageNamed:@"genericAlbum"];
+        if(jpeg != NULL)
+            bigImage = [UIImage imageWithData:[NSData dataWithBytes:jpeg length:len]];
+        
+        CGImageRef bigImageRef = [bigImage CGImage];
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(44.0,44.0),NO,0);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetInterpolationQuality(context,kCGInterpolationHigh);
+        CGAffineTransform flipVertical = CGAffineTransformMake(1,0,0,-1,0,44.0);
+        CGContextConcatCTM(context,flipVertical);
+        CGContextDrawImage(context,CGRectMake(0.0,0.0,44.0,44.0),bigImageRef);
+        CGImageRef smallImageRef = CGBitmapContextCreateImage(context);
+        UIImage* smallImage = [UIImage imageWithCGImage:smallImageRef];
+        CGImageRelease(smallImageRef);
+        UIGraphicsEndImageContext();
+        
+        dispatch_sync(dispatch_get_main_queue(),^{
+            if(delegate != nil)
+                [delegate spooftify:self foundImage:smallImage forId:coverId];
+        });
+    });
+}
+
+-(UIImage*) cachedThumbnailWithId:(NSString*)coverId
 {
     int coverIdLen = [coverId length];
     char _coverId[coverIdLen+1];
@@ -307,11 +345,9 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
     int len = 0;
     void* jpeg = despotify_get_image(ds,_coverId,&len,YES);
     
-    NSLog(@"jpeg = %p",jpeg);
-    
-    UIImage* bigImage = [UIImage imageWithData:[NSData dataWithBytes:jpeg length:len]];
-    if(bigImage == nil)
-        bigImage = [UIImage imageNamed:@"genericAlbum"];
+    UIImage* bigImage = [UIImage imageNamed:@"genericAlbum"];
+    if(jpeg != NULL)
+        bigImage = [UIImage imageWithData:[NSData dataWithBytes:jpeg length:len]];
     
     CGImageRef bigImageRef = [bigImage CGImage];
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(44.0,44.0),NO,0);
@@ -381,7 +417,7 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
     });
 }
 
--(void) findAlbum:(NSString*)albumId
+-(void) findAlbum:(NSString*)albumId delegate:(id<SpooftifyAlbumDelegate>)delegate
 {
     dispatch_async(queue,^{
         int albumIdLen = [albumId length];
@@ -392,16 +428,15 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
         struct album_browse* album = despotify_get_album(ds,_albumId);
         
         dispatch_sync(dispatch_get_main_queue(),^{
-            SpooftifyAlbum* albumSpooftify = [SpooftifyAlbum albumWithAlbumBrowse:album];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:SpooftifyAlbumFoundNotification object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:albumSpooftify,@"Album",nil]];
-            
-            despotify_free_album_browse(album);
+            if(delegate != nil)
+                [delegate spooftify:self foundAlbum:[SpooftifyAlbum albumWithAlbumBrowse:album]];
         });
+        
+        despotify_free_album_browse(album);
     });
 }
 
--(void) findArtist:(NSString*)artistId
+-(void) findArtist:(NSString*)artistId delegate:(id<SpooftifyArtistDelegate>)delegate
 {
     dispatch_async(queue,^{
         int artistIdLen = [artistId length];
@@ -412,13 +447,11 @@ void interruptionListener(void* inClientData,UInt32 inInterruptionState)
         struct artist_browse* artist = despotify_get_artist(ds,_artistId);
         
         dispatch_sync(dispatch_get_main_queue(),^{
-            SpooftifyArtist* artistSpooftify = [SpooftifyArtist artistWithArtistBrowse:artist];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:SpooftifyArtistFoundNotification object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:artistSpooftify,@"Artist",nil]];
-            
-            if(artist != NULL)
-                despotify_free_artist_browse(artist);
+            if(delegate != nil)
+                [delegate spooftify:self foundArtist:[SpooftifyArtist artistWithArtistBrowse:artist]];
         });
+        
+        despotify_free_artist_browse(artist);
     });
 }
 

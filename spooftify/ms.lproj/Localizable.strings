@@ -30,3 +30,16 @@
 "CountryKey" = "negara";
 "TypeKey" = "jenis";
 "ServerKey" = "Server";
+
+// Settings strings
+"SettingsKey" = "Tetapan";
+"LogOutKey" = "Log Out";
+"HighBitrateKey" = "Bitrate tinggi";
+"VersionKey" = "versi";
+
+// Songs strings
+"ShufflePlayKey" = "Main shuffle";
+
+// Album strings
+"SinglesKey" = "Singles";
+"AppearsOnKey" = "muncul Pada";

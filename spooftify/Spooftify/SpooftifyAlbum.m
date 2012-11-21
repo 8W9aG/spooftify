@@ -112,9 +112,6 @@ static NSMutableArray* albumPool = nil;
     
     name = [[NSString alloc] initWithUTF8String:_album_browse.name];
     albumId = [[NSString alloc] initWithUTF8String:(const char*)_album_browse.id];
-    NSLog(@"_album_browse.tracks = %p",album_browse->tracks);
-    NSLog(@"artist = %p",album_browse->tracks[0].artist);
-    NSLog(@"name = %p",album_browse->tracks[0].artist->name);
     artistName = [[NSString alloc] initWithUTF8String:_album_browse.tracks[0].artist->name];
     coverId = [[NSString alloc] initWithUTF8String:_album_browse.cover_id];
     tracks = [[NSMutableArray alloc] init];

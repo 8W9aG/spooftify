@@ -8,7 +8,6 @@
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 #import "SpooftifyArtistTableViewCell.h"
-#import "Spooftify.h"
 
 @implementation SpooftifyArtistTableViewCell
 
@@ -37,7 +36,39 @@
     
     // Change the cells UI to reflect the artist
     [[self textLabel] setText:[artist name]];
-    [[self imageView] setImage:[[Spooftify sharedSpooftify] thumbnailWithId:[artist portraitId]]];
+    
+    // Load the album image
+    [[self imageView] setImage:[[Spooftify sharedSpooftify] cachedThumbnailWithId:[artist portraitId]]];
+    
+    // If a timer currently exists invalidate it
+    if(albumImageTimer != nil)
+        [albumImageTimer invalidate];
+    // Create a new timer that will check if the cell is still around after 2 seconds (user has stopped scrolling fast)
+    albumImageTimer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(albumImageDownloadTimer:) userInfo:artist repeats:NO];
+    
+    [[Spooftify sharedSpooftify] findThumbnailWithId:[artist portraitId] delegate:self];
+}
+
+#pragma mark SpooftifyImageDelegate
+
+// When Spooftify finds an image
+-(void) spooftify:(Spooftify*)spooftify foundImage:(UIImage*)image forId:(NSString*)coverId
+{
+    // If the image is what we need
+    if([[artist portraitId] isEqualToString:coverId])
+        // Set the image
+        [[self imageView] setImage:image];
+}
+
+#pragma mark NSTimer
+
+// When the timer ends
+-(void) albumImageDownloadTimer:(NSTimer*)timer
+{
+    // If the track is still the same
+    if([timer userInfo] == artist)
+        // Download the thumbnail
+        [[Spooftify sharedSpooftify] findThumbnailWithId:[artist portraitId] delegate:self];
 }
 
 @end

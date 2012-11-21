@@ -30,3 +30,16 @@
 "CountryKey" = "negara";
 "TypeKey" = "jenis";
 "ServerKey" = "Server";
+
+// Settings strings
+"SettingsKey" = "Pengaturan";
+"LogOutKey" = "Log Out";
+"HighBitrateKey" = "tinggi Bitrate";
+"VersionKey" = "versi";
+
+// Songs strings
+"ShufflePlayKey" = "Shuffle Bermain";
+
+// Album strings
+"SinglesKey" = "Jomblo";
+"AppearsOnKey" = "muncul Pada";

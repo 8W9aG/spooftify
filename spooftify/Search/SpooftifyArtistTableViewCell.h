@@ -9,10 +9,13 @@
  */
 #import <UIKit/UIKit.h>
 #import "SpooftifyArtist.h"
+#import "Spooftify.h"
 
-@interface SpooftifyArtistTableViewCell : UITableViewCell
+@interface SpooftifyArtistTableViewCell : UITableViewCell <SpooftifyImageDelegate>
 {
     __strong SpooftifyArtist* artist;
+    
+    NSTimer* albumImageTimer;
 }
 
 @property (nonatomic,strong) SpooftifyArtist* artist;

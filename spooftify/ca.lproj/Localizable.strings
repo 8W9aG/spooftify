@@ -30,3 +30,16 @@
 "CountryKey" = "país";
 "TypeKey" = "tipus";
 "ServerKey" = "Servidor";
+
+// Settings strings
+"SettingsKey" = "configuració";
+"LogOutKey" = "finalitzar la sessió";
+"HighBitrateKey" = "bitrate d'alta";
+"VersionKey" = "versió";
+
+// Songs strings
+"ShufflePlayKey" = "Reproducció aleatòria";
+
+// Album strings
+"SinglesKey" = "Individual";
+"AppearsOnKey" = "apareix a";

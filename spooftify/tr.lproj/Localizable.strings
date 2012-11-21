@@ -30,3 +30,16 @@
 "CountryKey" = "ülke";
 "TypeKey" = "tip";
 "ServerKey" = "Sunucu";
+
+// Settings strings
+"SettingsKey" = "Ayarlar";
+"LogOutKey" = "Log Out";
+"HighBitrateKey" = "Yüksek Bitrate";
+"VersionKey" = "versiyon";
+
+// Songs strings
+"ShufflePlayKey" = "Karışık Çalma";
+
+// Album strings
+"SinglesKey" = "tekler";
+"AppearsOnKey" = "Açık Görünüyor";

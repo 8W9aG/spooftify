@@ -16,97 +16,108 @@
 
 @implementation SpooftifySongsTableViewController
 
+#pragma mark SpooftifySongsTableViewController
+
+// Initialise
 -(id) initWithPlaylist:(SpooftifyPlaylist*)_playlist
 {
     self = [super init];
     
     playlist = _playlist;
     
+    // Set the table view controllers title to the playlists name
     [self setTitle:[playlist name]];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newTrack:) name:SpooftifyNewTrackNotification object:nil];
     
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    if([SpooftifyNowPlayingNavigationController isNowPlayingActive])
-    {
-        UIBarButtonItem* nowPlayingBtn = [[UIBarButtonItem alloc] initWithTitle:@"Now Playing" style:UIBarButtonItemStyleBordered target:self action:@selector(nowPlayingClicked:)];
-        [[self navigationItem] setRightBarButtonItem:nowPlayingBtn];
-    }
-    [[self tableView] reloadData];
-}
+#pragma mark UITableViewDataSource
 
--(void) nowPlayingClicked:(UIBarButtonItem*)nowPlayingBtn
-{
-    [self presentViewController:[SpooftifyNowPlayingNavigationController sharedNowPlayingNavigationController] animated:YES completion:nil];
-}
-
+// Define the number of sections in the table view
 -(NSInteger) numberOfSectionsInTableView:(UITableView*)tableView
 {
+    // Always 1
     return 1;
 }
 
+// Define the number of rows in the table view
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // Count the number of tracks in the playlist
     return [[playlist tracks] count];
 }
 
+// Return the cell for the row
 -(UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
+    // Find the queued Spooftify songs table view cell
     SpooftifySongsTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:[[SpooftifySongsTableViewCell class] description]];
+    
+    // If none is found, create it
     if(cell == nil)
     {
         cell = [[SpooftifySongsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[[SpooftifySongsTableViewCell class] description]];
         [cell setDelegate:self];
     }
+    
+    // Set the cells track
     [cell setTrack:[[playlist tracks] objectAtIndex:indexPath.row]];
     return cell;
 }
 
+#pragma mark UITableViewDelegate
+
+// When the user selects the cell
 -(void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
+    // Set the now playing controllers track and present it to the user
     SpooftifyNowPlayingNavigationController* nowPlayingNavigationController = [SpooftifyNowPlayingNavigationController sharedNowPlayingNavigationController];
     SpooftifyNowPlayingViewController* nowPlayingViewController = [nowPlayingNavigationController nowPlayingViewController];
     [nowPlayingViewController playPlaylist:playlist atTrack:[[playlist tracks] objectAtIndex:indexPath.row]];
     [self presentViewController:nowPlayingNavigationController animated:YES completion:nil];
 }
 
+// Returns the view for the section header
 -(UIView*) tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
+    // Create the shuffle button
     SpooftifyShuffleButton* shuffleBtn = [[SpooftifyShuffleButton alloc] init];
     [shuffleBtn addTarget:self action:@selector(shuffleClicked:) forControlEvents:UIControlEventTouchUpInside];
     return shuffleBtn;
 }
 
+// Define the height for the section header
 -(CGFloat) tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
     return SPOOFTIFY_SHUFFLE_BUTTON_HEIGHT;
 }
 
--(void) newTrack:(NSNotification*)notification
-{
-    [[self tableView] reloadData];
-}
+#pragma mark UIButton Control Event
 
+// When the user clicks the shuffle button
 -(void) shuffleClicked:(SpooftifyShuffleButton*)shuffleBtn
 {
+    // Set the now playing controller to shuffle and present it to the user
     SpooftifyNowPlayingNavigationController* nowPlayingNavigationController = [SpooftifyNowPlayingNavigationController sharedNowPlayingNavigationController];
     SpooftifyNowPlayingViewController* nowPlayingViewController = [nowPlayingNavigationController nowPlayingViewController];
     [nowPlayingViewController playPlaylist:playlist atTrack:nil];
     [self presentViewController:nowPlayingNavigationController animated:YES completion:nil];
 }
 
+#pragma mark SpooftifySongsTableViewCellDelegate
+
+// When the user clicks the album button
 -(void) spooftifySongsTableViewCellRequestAlbum:(SpooftifySongsTableViewCell*)cell
 {
+    // Create the album table view controller and present it to the user
     SpooftifyAlbumTableViewController* albumTableViewController = [[SpooftifyAlbumTableViewController alloc] initWithAlbumId:[[cell track] albumId] name:[[cell track] album]];
     [[self navigationController] pushViewController:albumTableViewController animated:YES];
 }
 
+// When the user clicks the artist button
 -(void) spooftifySongsTableViewCellRequestArtist:(SpooftifySongsTableViewCell*)cell
 {
+    // Create the artist table view controller and present it to the user
     SpooftifyArtistTableViewController* artistTableViewController = [[SpooftifyArtistTableViewController alloc] initWithArtist:[[cell track] artist]];
     [[self navigationController] pushViewController:artistTableViewController animated:YES];
 }

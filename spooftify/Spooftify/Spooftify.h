@@ -12,6 +12,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "SpooftifyTrack.h"
 #import "SpooftifyProfile.h"
+#import "SpooftifyAlbum.h"
 #import "TPCircularBuffer.h"
 #include "despotify.h"
 
@@ -19,8 +20,6 @@
 #define SpooftifyLoginFailedNotification @"SpooftifyLoginFailedNotification"
 #define SpooftifyTimeUpdatedNotification @"SpooftifyTimeUpdatedNotification"
 #define SpooftifyTrackEndedNotification @"SpooftifyTrackEndedNotification"
-#define SpooftifyAlbumFoundNotification @"SpooftifyAlbumFoundNotification"
-#define SpooftifyArtistFoundNotification @"SpooftifyArtistFoundNotification"
 #define SpooftifyNewTrackNotification @"SpooftifyNewTrackNotification"
 
 typedef enum SpooftifyPlayStateEnum {
@@ -40,6 +39,18 @@ typedef enum SpooftifyPlayStateEnum {
 
 @protocol SpooftifySearchDelegate <NSObject>
 -(void) spooftify:(Spooftify*)spooftify foundArtists:(NSArray*)artists albums:(NSArray*)albums tracks:(NSArray*)tracks;
+@end
+
+@protocol SpooftifyAlbumDelegate <NSObject>
+-(void) spooftify:(Spooftify*)spooftify foundAlbum:(SpooftifyAlbum*)album;
+@end
+
+@protocol SpooftifyImageDelegate <NSObject>
+-(void) spooftify:(Spooftify*)spooftify foundImage:(UIImage*)image forId:(NSString*)coverId;
+@end
+
+@protocol SpooftifyArtistDelegate <NSObject>
+-(void) spooftify:(Spooftify*)spooftify foundArtist:(SpooftifyArtist*)artist;
 @end
 
 @interface Spooftify : NSObject
@@ -83,14 +94,15 @@ typedef enum SpooftifyPlayStateEnum {
 -(void) pause;
 -(void) stop;
 
--(UIImage*) imageWithId:(NSString*)coverId;
--(UIImage*) thumbnailWithId:(NSString*)coverId;
+-(void) findImageWithId:(NSString*)coverId delegate:(id<SpooftifyImageDelegate>)delegate;
+-(void) findThumbnailWithId:(NSString*)coverId delegate:(id<SpooftifyImageDelegate>)delegate;
+-(UIImage*) cachedThumbnailWithId:(NSString*)coverId;
 
 -(void) search:(NSString*)query;
 -(void) search:(NSString*)query atOffset:(int)offset;
 
--(void) findAlbum:(NSString*)albumId;
--(void) findArtist:(NSString*)artistId;
+-(void) findAlbum:(NSString*)albumId delegate:(id<SpooftifyAlbumDelegate>)delegate;
+-(void) findArtist:(NSString*)artistId delegate:(id<SpooftifyArtistDelegate>)delegate;
 
 -(void) logout;
 

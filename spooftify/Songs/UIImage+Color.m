@@ -11,6 +11,7 @@
 
 @implementation UIImage (Color)
 
+// Create an image using a colour for a certain size
 +(UIImage*) imageWithColor:(UIColor*)color size:(CGSize)size
 {
     CGRect rect = CGRectMake(0.0,0.0,size.width,size.height);

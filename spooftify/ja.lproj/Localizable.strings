@@ -30,3 +30,16 @@
 "CountryKey" = "カントリー";
 "TypeKey" = "タイプ";
 "ServerKey" = "サーバー";
+
+// Settings strings
+"SettingsKey" = "設定";
+"LogOutKey" = "ログアウト";
+"HighBitrateKey" = "高ビットレート";
+"VersionKey" = "バージョン";
+
+// Songs strings
+"ShufflePlayKey" = "シャッフル再生";
+
+// Album strings
+"SinglesKey" = "シングルス";
+"AppearsOnKey" = "に表示されます";

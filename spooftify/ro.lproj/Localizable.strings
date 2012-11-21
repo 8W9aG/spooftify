@@ -30,3 +30,16 @@
 "CountryKey" = "țară";
 "TypeKey" = "tip";
 "ServerKey" = "Server";
+
+// Settings strings
+"SettingsKey" = "setări";
+"LogOutKey" = "Log Out";
+"HighBitrateKey" = "maxima în Bitrate";
+"VersionKey" = "versiune";
+
+// Songs strings
+"ShufflePlayKey" = "Redare aleatorie";
+
+// Album strings
+"SinglesKey" = "simplu";
+"AppearsOnKey" = "apare în";

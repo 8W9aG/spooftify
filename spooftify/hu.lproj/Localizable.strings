@@ -30,3 +30,16 @@
 "CountryKey" = "ország";
 "TypeKey" = "Type";
 "ServerKey" = "Server";
+
+// Settings strings
+"SettingsKey" = "Beállítások";
+"LogOutKey" = "Kijelentkezés";
+"HighBitrateKey" = "Magas Bitrate";
+"VersionKey" = "változat";
+
+// Songs strings
+"ShufflePlayKey" = "Véletlenszerű lejátszás";
+
+// Album strings
+"SinglesKey" = "Singles";
+"AppearsOnKey" = "jelenik meg";

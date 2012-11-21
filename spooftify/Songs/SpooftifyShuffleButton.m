@@ -13,25 +13,36 @@
 
 @implementation SpooftifyShuffleButton
 
+#pragma mark UIButton
+
+// Initialise
 -(id) init
 {
     self = [super initWithFrame:CGRectMake(0.0,0.0,320.0,SPOOFTIFY_SHUFFLE_BUTTON_HEIGHT)];
     
+    // Set the background image for different states
+    // We just using images created with colours, unfortunately UIButton does not support using background colours for different states
     [self setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:[self frame].size] forState:UIControlStateNormal];
     [self setBackgroundImage:[UIImage imageWithColor:[UIColor blueColor] size:[self frame].size] forState:UIControlStateHighlighted];
     
+    // Create the shuffle image view
     shuffleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shuffle"]];
     [self addSubview:shuffleImageView];
     
-    shuffleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0.0,0.0,100.0,20.0)];
+    // Create the shuffle label
+    NSString* shufflePlayTitle = NSLocalizedString(@"ShufflePlayKey",@"Title of Shuffle button");
+    UIFont* shufflePlayFont = [UIFont boldSystemFontOfSize:17.0];
+    shuffleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0.0,0.0,[shufflePlayTitle sizeWithFont:shufflePlayFont constrainedToSize:CGSizeMake([self frame].size.width-[shuffleImageView frame].size.width,20.0)].width,20.0)];
     [shuffleLbl setCenter:CGPointMake(([self frame].size.width/2.0)-(([shuffleImageView frame].size.width+[shuffleLbl frame].size.width+10.0)/2.0)+[shuffleImageView frame].size.width+10.0+([shuffleLbl frame].size.width/2.0),[self frame].size.height/2.0)];
-    [shuffleLbl setText:@"Shuffle Play"];
-    [shuffleLbl setFont:[UIFont boldSystemFontOfSize:17.0]];
+    [shuffleLbl setText:shufflePlayTitle];
+    [shuffleLbl setFont:shufflePlayFont];
     [shuffleLbl setBackgroundColor:[UIColor clearColor]];
     [self addSubview:shuffleLbl];
     
+    // Set the shuffle images position
     [shuffleImageView setCenter:CGPointMake(([self frame].size.width/2.0)-(([shuffleImageView frame].size.width+[shuffleLbl frame].size.width+10.0)/2.0)+([shuffleImageView frame].size.width/2.0),[self frame].size.height/2.0)];
     
+    // Create a border around the button on the top and bottom
     CALayer* bottomBorder = [CALayer layer];
     [bottomBorder setBorderColor:[UIColor lightGrayColor].CGColor];
     [bottomBorder setBorderWidth:1.0];
@@ -41,37 +52,24 @@
     return self;
 }
 
+// Override setHighlighted
 -(void) setHighlighted:(BOOL)highlighted
 {
     [super setHighlighted:highlighted];
+    
+    // If highlighted
     if(highlighted)
     {
+        // Change the text colour and set the image to the highlighted one
         [shuffleLbl setTextColor:[UIColor whiteColor]];
         [shuffleImageView setImage:[UIImage imageNamed:@"shuffle-highlighted"]];
     }
     else
     {
+        // Change the text colour and set the image to the normal one
         [shuffleLbl setTextColor:[UIColor blackColor]];
         [shuffleImageView setImage:[UIImage imageNamed:@"shuffle"]];
     }
-}
-
--(void) drawRect:(CGRect)rect
-{
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetRGBStrokeColor(context,163.0/255.0,163.0/255.0,163.0/255.0,1.0);
-    CGContextSetLineWidth(context,2);
-    
-    CGPoint points[2] =
-    {
-        CGPointMake(0.0,0.0),
-        CGPointMake(rect.size.width,0.0)
-    };
-    CGContextStrokeLineSegments(context,points,sizeof(points)/sizeof(CGPoint));
-    
-    points[0] = CGPointMake(0.0,SPOOFTIFY_SHUFFLE_BUTTON_HEIGHT);
-    points[1] = CGPointMake(320.0,SPOOFTIFY_SHUFFLE_BUTTON_HEIGHT);
-    CGContextStrokeLineSegments(context,points,sizeof(points)/sizeof(CGPoint));
 }
 
 @end

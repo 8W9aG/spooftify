@@ -11,8 +11,9 @@
 #import "SpooftifyPlaylist.h"
 #import "SpooftifyTrack.h"
 #import "SpooftifyAlbum.h"
+#import "Spooftify.h"
 
-@interface SpooftifyNowPlayingViewController : UIViewController
+@interface SpooftifyNowPlayingViewController : UIViewController <SpooftifyImageDelegate>
 {
     SpooftifyTrack* track;
     SpooftifyPlaylist* currentPlaylist;

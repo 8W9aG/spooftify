@@ -39,7 +39,39 @@
     // Change the cells UI to reflect the album
     [[self textLabel] setText:[album name]];
     [[self detailTextLabel] setText:[NSString stringWithFormat:@"by %@",[album artistName]]];
-    [[self imageView] setImage:[[Spooftify sharedSpooftify] thumbnailWithId:[album coverId]]];
+    
+    // Load the album image
+    [[self imageView] setImage:[[Spooftify sharedSpooftify] cachedThumbnailWithId:[album coverId]]];
+    
+    // If a timer currently exists invalidate it
+    if(albumImageTimer != nil)
+        [albumImageTimer invalidate];
+    // Create a new timer that will check if the cell is still around after 2 seconds (user has stopped scrolling fast)
+    albumImageTimer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(albumImageDownloadTimer:) userInfo:album repeats:NO];
+    
+    [[Spooftify sharedSpooftify] findThumbnailWithId:[album coverId] delegate:self];
+}
+
+#pragma mark SpooftifyImageDelegate
+
+// When Spooftify finds our image
+-(void) spooftify:(Spooftify*)spooftify foundImage:(UIImage*)image forId:(NSString*)coverId
+{
+    // If the cover id is what we want
+    if([[album coverId] isEqualToString:coverId])
+        // Set the image
+        [[self imageView] setImage:image];
+}
+
+#pragma mark NSTimer
+
+// When the timer ends
+-(void) albumImageDownloadTimer:(NSTimer*)timer
+{
+    // If the track is still the same
+    if([timer userInfo] == album)
+        // Download the thumbnail
+        [[Spooftify sharedSpooftify] findThumbnailWithId:[album coverId] delegate:self];
 }
 
 @end

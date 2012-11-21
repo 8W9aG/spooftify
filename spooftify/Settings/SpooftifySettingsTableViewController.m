@@ -13,21 +13,31 @@
 #import "UIGrayGradientButton.h"
 #import "SpooftifyLoginViewController.h"
 
+#define kSpooftifySettingsTableViewControllerVersionCellIndex 0
+#define kSpooftifySettingsTableViewControllerHighBitrateCellIndex 1
+
 @implementation SpooftifySettingsTableViewController
 
+#pragma mark UITableViewController
+
+// Initialise
 -(id) init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     
-    [self setTitle:@"Settings"];
+    // Set the title of the table view to settings
+    [self setTitle:NSLocalizedString(@"SettingsKey",@"Title of Settings Tab Bar Item")];
     
+    // Listen for a successful login
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSucceeded) name:SpooftifyLoginSucceededNotification object:nil];
     
+    // Create the table footer view
     UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0,0.0,320.0,50.0)];
     
+    // Use a gray gradient button to log out of the app with
     UIGrayGradientButton* logoutBtn = [[UIGrayGradientButton alloc] initWithFrame:CGRectMake(0.0,0.0,300.0,38.0)];
     [logoutBtn setCenter:CGPointMake([footerView frame].size.width/2.0,[logoutBtn center].y)];
-    [logoutBtn setTitle:@"Log Out" forState:UIControlStateNormal];
+    [logoutBtn setTitle:NSLocalizedString(@"LogOutKey",@"Title of the Log Out Button") forState:UIControlStateNormal];
     [logoutBtn addTarget:self action:@selector(logoutButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
     
     [footerView addSubview:logoutBtn];
@@ -36,82 +46,89 @@
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    if([SpooftifyNowPlayingNavigationController isNowPlayingActive])
-    {
-        UIBarButtonItem* nowPlayingBtn = [[UIBarButtonItem alloc] initWithTitle:@"Now Playing" style:UIBarButtonItemStyleBordered target:self action:@selector(nowPlayingClicked:)];
-        [[self navigationItem] setRightBarButtonItem:nowPlayingBtn];
-    }
-}
+#pragma mark UITableViewDataSource
 
--(void) nowPlayingClicked:(UIBarButtonItem*)nowPlayingBtn
-{
-    [self presentViewController:[SpooftifyNowPlayingNavigationController sharedNowPlayingNavigationController] animated:YES completion:nil];
-}
-
+// Define the number of sections in the table view
 -(NSInteger) numberOfSectionsInTableView:(UITableView*)tableView
 {
+    // Always 1
     return 1;
 }
 
+// Define the number of rows in the table view
 -(NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // We only have 2 cells in this case
     return 2;
 }
 
+// Return the cell for a row
 -(UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    if(indexPath.row == 1)
+    // If the row is the high bitrate cell
+    if(indexPath.row == kSpooftifySettingsTableViewControllerHighBitrateCellIndex)
     {
+        // Find a queued switch table view cell
         UISwitchTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:[[UISwitchTableViewCell class] description]];
+        
+        // If there is none, create it
         if(cell == nil)
         {
             cell = [[UISwitchTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:[[UISwitchTableViewCell class] description]];
             [cell setDelegate:self];
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
-        [[cell textLabel] setText:@"High Bitrate"];
+        
+        // Set the cells UI to High Bitrate
+        [[cell textLabel] setText:NSLocalizedString(@"HighBitrateKey",@"Title of the High Bitrate cell")];
         [[cell boolSwitch] setOn:[[Spooftify sharedSpooftify] useHighBitrate]];
         return cell;
     }
     
+    // Else it must be the version cell
+    // Find a queued version cell
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:[[UITableViewCell class] description]];
+    
+    // If none exists, create it
     if(cell == nil)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:[[UITableViewCell class] description]];
-    [[cell textLabel] setText:@"Version"];
     
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [[cell detailTextLabel] setText:[defaults stringForKey:@"version"]];
-    
+    // Set the cells UI to Version
+    [[cell textLabel] setText:NSLocalizedString(@"VersionKey",@"Title of the Version cell")];
+    [[cell detailTextLabel] setText:[[NSUserDefaults standardUserDefaults] stringForKey:@"version"]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
+#pragma mark Spooftify Notifications
+
+// When the user successfully logs in
 -(void) loginSucceeded
 {
+    // Reload the table view data
     [[self tableView] reloadData];
 }
 
+#pragma mark UISwitchTableViewCellDelegate
+
+// When the user switches a cell
 -(void) switchTableViewCell:(UISwitchTableViewCell*)cell switched:(BOOL)newValue
 {
-    NSIndexPath* indexPath = [[self tableView] indexPathForCell:cell];
+    // Set the defaults to our new value
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    if(indexPath.row == 1)
-    {
-        [defaults setBool:newValue forKey:@"use_cache"];
-        [[Spooftify sharedSpooftify] setUseCache:newValue];
-    }
-    else
-    {
-        [defaults setBool:newValue forKey:@"high_bitrate"];
-        [[Spooftify sharedSpooftify] setUseHighBitrate:newValue];
-    }
+    [defaults setBool:newValue forKey:@"high_bitrate"];
     [defaults synchronize];
+    
+    // Set spooftify to use our value
+    [[Spooftify sharedSpooftify] setUseHighBitrate:newValue];
 }
 
+#pragma mark UIButton Control Events
+
+// When the log out button is pressed
 -(void) logoutButtonTouchUpInside:(UIButton*)logoutButton
 {
+    // Create a login view and present it to the user
     SpooftifyLoginViewController* loginViewController = [[SpooftifyLoginViewController alloc] init];
     [loginViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [[self tabBarController] presentViewController:loginViewController animated:YES completion:nil];

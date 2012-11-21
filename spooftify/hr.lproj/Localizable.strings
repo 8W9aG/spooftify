@@ -30,3 +30,16 @@
 "CountryKey" = "zemlja";
 "TypeKey" = "vrsta";
 "ServerKey" = "server";
+
+// Settings strings
+"SettingsKey" = "Postavke";
+"LogOutKey" = "Odjava";
+"HighBitrateKey" = "Visoki Bitrate";
+"VersionKey" = "verzija";
+
+// Songs strings
+"ShufflePlayKey" = "Shuffle igra";
+
+// Album strings
+"SinglesKey" = "singlovi";
+"AppearsOnKey" = "Pojavljuje se na";

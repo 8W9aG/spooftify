@@ -1268,7 +1268,7 @@ void despotify_free_artist_browse(struct artist_browse* a)
     xml_free_artist_browse(a);
 }
 
-void* despotify_get_image(struct despotify_session* ds, char* image_id, int* len, bool only_cache)
+void* despotify_get_image(struct despotify_session* ds, char* image_id, int* len, bool use_cache)
 {
     /* check cache */
     if (ds->use_cache && cache_contains((unsigned char*)image_id)) {
@@ -1276,7 +1276,7 @@ void* despotify_get_image(struct despotify_session* ds, char* image_id, int* len
 
         return (void *)cache_load((unsigned char*)image_id, (unsigned int*)len);
     }
-    else if (only_cache)
+    else if(use_cache)
         return NULL;
 
     ds->response = buf_new();

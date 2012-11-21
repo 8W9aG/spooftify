@@ -30,3 +30,16 @@
 "CountryKey" = "ארץ";
 "TypeKey" = "סוג";
 "ServerKey" = "שרת";
+
+// Settings strings
+"SettingsKey" = "הגדרות";
+"LogOutKey" = "התנתק";
+"HighBitrateKey" = "הגבוה Bitrate";
+"VersionKey" = "גרסה";
+
+// Songs strings
+"ShufflePlayKey" = "Play shuffle";
+
+// Album strings
+"SinglesKey" = "רווקים";
+"AppearsOnKey" = "מופיע על";

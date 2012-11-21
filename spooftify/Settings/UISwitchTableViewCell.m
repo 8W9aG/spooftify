@@ -14,10 +14,14 @@
 @synthesize boolSwitch;
 @synthesize delegate;
 
+#pragma mark UITableViewCell
+
+// Initialise
 -(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
+    // Create the switch
     boolSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(0.0,0.0,75.0,28.0)];
     [boolSwitch setCenter:CGPointMake([self frame].size.width-([boolSwitch frame].size.width/2.0)-20.0,[self center].y)];
     [boolSwitch addTarget:self action:@selector(boolSwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -26,8 +30,12 @@
     return self;
 }
 
+#pragma mark UISwitch Control Event
+
+// When the user switches the value
 -(void) boolSwitchValueChanged:(UISwitch*)_boolSwitch
 {
+    // Call the delegate
     if(delegate != nil)
         [delegate switchTableViewCell:self switched:[_boolSwitch isOn]];
 }

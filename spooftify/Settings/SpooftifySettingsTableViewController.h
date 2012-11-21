@@ -9,7 +9,8 @@
  */
 #import <UIKit/UIKit.h>
 #import "UISwitchTableViewCell.h"
+#import "SpooftifyTableViewController.h"
 
-@interface SpooftifySettingsTableViewController : UITableViewController <UISwitchTableViewCellDelegate>
+@interface SpooftifySettingsTableViewController : SpooftifyTableViewController <UISwitchTableViewCellDelegate>
 
 @end

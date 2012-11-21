@@ -30,3 +30,16 @@
 "CountryKey" = "країна";
 "TypeKey" = "Тип";
 "ServerKey" = "сервер";
+
+// Settings strings
+"SettingsKey" = "налаштування";
+"LogOutKey" = "вийти";
+"HighBitrateKey" = "високий бітрейт";
+"VersionKey" = "версія";
+
+// Songs strings
+"ShufflePlayKey" = "відтворення в довільному порядку";
+
+// Album strings
+"SinglesKey" = "Знайомства";
+"AppearsOnKey" = "з'являється на";
